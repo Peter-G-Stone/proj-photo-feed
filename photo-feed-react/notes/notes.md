@@ -1,3 +1,17 @@
+from enoch meeting
+    for user authentication:
+        rails doesn't have access to session when doing a single page app
+        still use bcrypt
+        look at lab with the github api for example of sending json req with headers
+            instead of a session token you'll have 
+                localStorage.setItem('token', '1234')
+                localStorage.getItem('token')
+                localStorage.removeItem('token')
+        look at sinatra project for example of using bcrypt user
+
+start with landing page
+
+
 idea!
     user inputs a search term
     source cover images of projects from behances api
