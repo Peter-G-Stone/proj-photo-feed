@@ -1,10 +1,15 @@
 class SessionsController < ApplicationController
     def create
-        binding.pry
+        user = User.find_by(name: params[:username])
+        if user.authenticate(params[:password])
+            binding.pry
+        else
+            binding.pry
+        end
     end
 
     # private
     # def session_params
-    #     params.require(:session).permit(:email, :name, :password_digest, :admin)
-    #   end
+    #     params.require(:session).permit(:username, :password)
+    # end
 end
