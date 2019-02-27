@@ -1,5 +1,5 @@
 import React, { Component } from 'react';
-import PicsList from '../components/PicsList'
+import PicsList from '../components/Pics/PicsList'
 export default class PicsContainer extends Component {
     
 

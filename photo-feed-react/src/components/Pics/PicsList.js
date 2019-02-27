@@ -1,13 +1,13 @@
 import React, { Component } from 'react';
-
+import Pic from './Pic'
 
 export default class PicsList extends Component {
     
 
     
-     mapThruPhotos = () => {
+     mapThruPics = () => {
           return this.props.pics.map(pic => {
-              return <p><img alt="picInList" src={pic.url}/></p>
+              return <Pic pic={pic}/>
           })
       }
     
@@ -16,7 +16,7 @@ export default class PicsList extends Component {
        return (
           <><p>Homepage! Logged in</p> 
           <ul>
-              {this.mapThruPhotos()}
+              {this.mapThruPics()}
           </ul></>
 
        )}
