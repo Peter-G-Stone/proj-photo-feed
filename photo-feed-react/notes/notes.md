@@ -11,11 +11,11 @@ Wed Feb 27 3pm
         config/initializers/knock.rb
         this route:   post 'user_token' => 'user_token#create'
 
-        
+
 
 potenially useful sites:
   
-  you're using this, enoch sent it
+  you were using this, enoch sent it
     https://medium.com/@nick.hartunian/knock-jwt-auth-for-rails-api-create-react-app-6765192e295a
   
   a different login ex you may wanna checkout   
