@@ -1,3 +1,5 @@
+
+
 from enoch meeting
     for user authentication:
         rails doesn't have access to session when doing a single page app
@@ -9,7 +11,9 @@ from enoch meeting
                 localStorage.removeItem('token')
         look at sinatra project for example of using bcrypt user
 
-start with landing page
+    start with landing page
+
+    https://medium.com/@nick.hartunian/knock-jwt-auth-for-rails-api-create-react-app-6765192e295a
 
 
 idea!
