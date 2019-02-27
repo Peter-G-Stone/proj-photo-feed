@@ -24,11 +24,13 @@ export default class LoginPage extends Component {
         fetch('http://localhost:3001/login',
         {
             method: "POST",
+            credentials: 'include',
             body: JSON.stringify(this.state),
             headers: {
-                "Content-Type": "application/json"
-            }
+                "Content-Type": "application/json"            }
         })
+        .then(resp => resp.json())
+        .then(jsonData => console.log(jsonData))
     }
 
     render() {

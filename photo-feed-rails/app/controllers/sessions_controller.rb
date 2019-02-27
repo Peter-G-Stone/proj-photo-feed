@@ -1,10 +1,12 @@
 class SessionsController < ApplicationController
     def create
         user = User.find_by(name: params[:username])
-        if user.authenticate(params[:password])
-            binding.pry
+        if user && user.authenticate(params[:password])
+            render json: user
         else
-            binding.pry
+        render json: {
+            error: 'Username or password incorrect'
+            }, status: 404          
         end
     end
 
