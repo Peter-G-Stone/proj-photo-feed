@@ -20,17 +20,26 @@ export default class LoginPage extends Component {
     handleSubmit = (e) => {
         e.preventDefault();
 
-        const { username, password } = this.state;
+        console.log('submitting ', this.state)
+        fetch('http://localhost:3001/login',
+        {
+            method: "POST",
+            body: JSON.stringify(this.state),
+            headers: {
+                "Content-Type": "application/json"
+            }
+        })
     }
 
     render() {
        return (
             <><h2>Login</h2>
-            <form>
-                <label>Username </label>
-                <input type="text" value={this.state.username} name="username" onChange={this.handleChange}/>
-                <label>Password </label>
-                <input type="password" value={this.state.passowrd} name="password" onChange={this.handleChange}/>
+            <form onSubmit={event => this.handleSubmit(event)}>
+                <p><label>Username </label>
+                <input type="text" value={this.state.username} name="username" onChange={this.handleChange}/></p>
+                <p><label>Password </label>
+                <input type="password" value={this.state.passowrd} name="password" onChange={this.handleChange}/></p>
+                <button type="submit">Submit</button>
             </form></>
 
        )}
