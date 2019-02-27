@@ -20,11 +20,14 @@ export default class LoginPage extends Component {
     handleSubmit = (e) => {
         e.preventDefault();
 
+        const username = this.state.username 
+        const password = this.state.password
+        const request = {'auth': {'username': username, 'password': password}}
+
         console.log('submitting ', this.state)
         fetch('http://localhost:3001/login',
         {
             method: "POST",
-            credentials: 'include',
             body: JSON.stringify(this.state),
             headers: {
                 "Content-Type": "application/json"            }
