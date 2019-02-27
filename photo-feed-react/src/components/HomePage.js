@@ -18,7 +18,7 @@ export default class LoginPage extends Component {
     
     render() {
        return (
-            <>Homepage! Logged in baby <img src={this.state.pic.url}/></>
+            <>Homepage! Logged in baby <img alt='dummy img' src={this.state.pic.url}/></>
 
        )}
 }

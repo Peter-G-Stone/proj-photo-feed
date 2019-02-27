@@ -1,3 +1,22 @@
+potenially useful sites:
+  
+  you're using this, enoch sent it
+    https://medium.com/@nick.hartunian/knock-jwt-auth-for-rails-api-create-react-app-6765192e295a
+  
+  a different login ex you may wanna checkout   
+    http://jasonwatmore.com/post/2017/09/16/react-redux-user-registration-and-login-tutorial-example
+
+  knock gem
+    https://github.com/nsarno/knock
+
+  consuming apis from learn
+    https://learn.co/tracks/online-software-engineering-full-time/rails-and-javascript/consuming-apis/working-with-apis
+
+    
+  see react components as routes  
+    https://github.com/Peter-G-Stone/react-components-as-routes-lab-online-web-ft-092418/blob/master/src/containers/App.js
+
+
 
 
 from enoch meeting
