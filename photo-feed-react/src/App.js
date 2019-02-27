@@ -4,7 +4,7 @@ import {fetchPics} from './actions/picActions'
 import { connect } from 'react-redux'
 import { BrowserRouter as Router, Route } from 'react-router-dom'
 import LoginPage from './components/LoginPage'
-import HomePage from './components/HomePage'
+import PicsContainer from './containers/PicsContainer'
 
 
 class App extends Component {
@@ -18,11 +18,11 @@ class App extends Component {
       <div className="App">
         <Router >
             <div>
-                <Route exact path="/" component={HomePage} />
+                <Route exact path="/" component={PicsContainer} />
                 <Route path="/login" component={LoginPage} />
                 {/* <Route path="/register" component={RegisterPage} /> */}
             </div>
-          </Router>
+        </Router>
       </div>
     );
   }
