@@ -5,20 +5,30 @@ export default class LoginPage extends Component {
     
 
     state = {
-        pic: ''
+        pics: []
     }
 
     componentDidMount() {
         fetch('http://localhost:3001/pics')
         .then(resp => resp.json())
-        .then(pic => 
-            
-            this.setState({pic})   )
+        .then(pics =>             
+            {
+                this.setState({pics})})
+    }
+
+    mapThruPhotos = () => {
+        return this.state.pics.map(pic => {
+            return <p><img alt="picInList" src={pic.url}/></p>
+        })
     }
     
     render() {
        return (
-            <>Homepage! Logged in <img alt='dummy img' src={this.state.pic.url}/></>
+            <> <p>Homepage! Logged in</p> 
+            <ul>
+                {this.mapThruPhotos()}
+            </ul>
+            </>
 
        )}
 }
