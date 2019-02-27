@@ -7,7 +7,7 @@ import { connect } from 'react-redux'
 class App extends Component {
   
   componentDidMount() {
-    this.props.fetchPics()
+    // this.props.fetchPics()
   }
   
   render() {
@@ -15,7 +15,7 @@ class App extends Component {
       <div className="App">
         <header className="App-header">
           <p>
-            Photo Feed (with Behance)
+            Photo Feed
           </p>          
         </header>
 
