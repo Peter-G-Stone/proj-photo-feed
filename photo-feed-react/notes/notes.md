@@ -1,3 +1,18 @@
+Wed Feb 27 3pm
+    stuck on login
+    should ignore it for now and start working other stuff
+    where I left off?
+        see the fetch from components/LoginPage
+        uncomment line 2 authenticate_user from pics_controller
+        https://medium.com/@nick.hartunian/knock-jwt-auth-for-rails-api-create-react-app-6765192e295a
+    things I added?
+        jwt and knock gems
+        user_token_controller
+        config/initializers/knock.rb
+        this route:   post 'user_token' => 'user_token#create'
+
+        
+
 potenially useful sites:
   
   you're using this, enoch sent it
