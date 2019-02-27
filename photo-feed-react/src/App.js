@@ -2,6 +2,8 @@ import React, { Component } from 'react';
 import './App.css';
 import {fetchPics} from './actions/picActions'
 import { connect } from 'react-redux'
+import { BrowserRouter as Router, Route } from 'react-router-dom'
+import LoginPage from './components/LoginPage'
 
 
 class App extends Component {
@@ -13,12 +15,13 @@ class App extends Component {
   render() {
     return (
       <div className="App">
-        <header className="App-header">
-          <p>
-            Photo Feed
-          </p>          
-        </header>
-
+        <Router >
+            <div>
+                {/* <PrivateRoute exact path="/" component={HomePage} /> */}
+                <Route path="/login" component={LoginPage} />
+                {/* <Route path="/register" component={RegisterPage} /> */}
+            </div>
+          </Router>
       </div>
     );
   }
