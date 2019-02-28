@@ -3,6 +3,7 @@ export function fetchPics () { //changing this off of export default to reg expe
         dispatch({type: 'LOADING_PICS'})
         return fetch('http://localhost:3001/pics')
             .then(resp => resp.json())
-            .then(picData => dispatch({type: "FETCH_PICS", payload: picData}))
+            .then(picData => {
+                dispatch({type: "FETCH_PICS", payload: picData})})
     }
 }

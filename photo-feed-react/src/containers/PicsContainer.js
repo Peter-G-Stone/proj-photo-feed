@@ -5,27 +5,20 @@ import {connect} from 'react-redux'
 class PicsContainer extends Component {
     
 
-    // componentDidMount() {
-    //     fetch('http://localhost:3001/pics')
-    //     .then(resp => resp.json())
-    //     .then(pics =>             
-    //         {
-    //             this.setState({pics})})
-    // }
-
 
     
     
     render() {
         return(
             <> 
-            <PicsList pics={this.props.pics} />
+            <PicsList pics={this.props.pics.pics} />
             </>
         )
     }
 }
 
 const mapStateToProps = (state) => {
+    debugger
     return {pics: state.pics}
 }
 

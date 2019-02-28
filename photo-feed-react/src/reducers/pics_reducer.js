@@ -1,12 +1,13 @@
 export default function picsReducer (state = {
-    pictures: [],
+    pics: [],
     loading: false
 }, action) {
     switch(action.type) {
         case "LOADING_PICS":
-            return {loading: true, pictures: [...state.pictures] } 
+            return {loading: true, pics: [...state.pics] } 
         case "FETCH_PICS": 
-            return {...state, pictures: action.payload, loading: false}
+            debugger
+            return {...state, pics: action.payload, loading: false}
         default: 
             return state
     }
