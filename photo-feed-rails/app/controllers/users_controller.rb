@@ -38,6 +38,26 @@ class UsersController < ApplicationController
     @user.destroy
   end
 
+########## implemented from https://medium.com/@christine_tran/part-1-create-react-app-rails-api-authentication-with-jwt-tokens-and-redux-e14c7e788989
+
+
+def find
+  @user = User.find_by(email: params[:user][:email])
+  if @user
+    render json: @user
+  else
+    @errors = @user.errors.full_messages
+    render json: @errors
+  end
+end
+
+    
+
+
+####
+
+
+
   private
     # Use callbacks to share common setup or constraints between actions.
     def set_user

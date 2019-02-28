@@ -1,3 +1,6 @@
+Wed Feb 27 8pm
+    got it switched to redux but weird bug where my pics aspect of state is getting another pics nested under it, see the return value of pics container
+
 Wed Feb 27 3pm
     stuck on login
     should ignore it for now and start working other stuff

@@ -18,7 +18,6 @@ class PicsContainer extends Component {
 }
 
 const mapStateToProps = (state) => {
-    debugger
     return {pics: state.pics}
 }
 
