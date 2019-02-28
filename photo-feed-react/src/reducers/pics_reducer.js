@@ -1,3 +1,5 @@
+import * as types from '../actions/actionTypes';
+
 export default function picsReducer (state = {
     pics: [],
     loading: false
