@@ -16,7 +16,7 @@ class Api::UsersController < ApplicationController
   # POST /users
   def create
     @user = User.new(user_params)
-
+    binding.pry
     if @user.save
       render json: @user, status: :created, location: @user
     else
@@ -61,6 +61,6 @@ end
 
     # Only allow a trusted parameter "white list" through.
     def user_params
-      params.require(:user).permit(:email, :username, :password_digest, :admin)
+      params.require(:user).permit(:email, :username, :password, :admin)
     end
 end

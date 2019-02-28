@@ -1,5 +1,13 @@
+Thurs Feb 28 5pm
+  remember to go back and make sure passwords match in form!
+
+
+
+
+
 Wed Feb 27 8pm
     got it switched to redux but weird bug where my pics aspect of state is getting another pics nested under it, see the return value of pics container
+      this was cause I was calling my reducer pics when I brought it into rootReducer!
 
 Wed Feb 27 3pm
     stuck on login
