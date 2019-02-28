@@ -14,10 +14,9 @@ export default class PicsList extends Component {
     
     render() {
        return (
-          <><p>Homepage! Logged in</p> 
-          <ul>
+          <><h3>PicList!</h3> 
               {this.mapThruPics()}
-          </ul></>
+          </>
 
        )}
 }

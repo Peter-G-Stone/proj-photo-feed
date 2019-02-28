@@ -10,7 +10,7 @@ import PicsContainer from './containers/PicsContainer'
 class App extends Component {
   
   componentDidMount() {
-    // this.props.fetchPics()
+    this.props.fetchPics()
   }
   
   render() {
@@ -29,13 +29,9 @@ class App extends Component {
 }
 
 
-const mapStateToProps = (state) => {
-  return {pics: state.pictures}
-}
-
 const mapDispatchToProps = (dispatch) => ({
   fetchPics: () => dispatch(fetchPics())
 })
 
 
-export default connect(mapStateToProps, mapDispatchToProps)(App)
+export default connect(null, mapDispatchToProps)(App)
