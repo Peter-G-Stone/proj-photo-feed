@@ -1,5 +1,9 @@
 Thurs Feb 28 5pm
   remember to go back and make sure passwords match in form!
+  debugging login:
+    order of debuggers:  
+      authenticate action, but before fetch request comes back it goes to
+      history.push('/')
 
 
 

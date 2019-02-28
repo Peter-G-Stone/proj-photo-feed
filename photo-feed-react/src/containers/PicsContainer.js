@@ -6,13 +6,10 @@ import {fetchPics} from '../actions/picActions'
 class PicsContainer extends Component {
     
     componentDidMount() {
-        if (localStorage.getItem('token')) {
-            debugger            
-            if (this.props.pics.length === 0){
+                   
+        if (this.props.pics.length === 0){
                 this.props.fetchPics()
                 debugger
-
-            }
         } else {
             console.log('you are in the else in picsContainer')
             debugger

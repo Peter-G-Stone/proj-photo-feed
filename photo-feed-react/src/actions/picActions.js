@@ -10,6 +10,7 @@ export function fetchPics () { //changing this off of export default to reg expe
                 'Authorization': `Bearer ${localStorage.getItem('token')}`
             }
         })
+            .catch(error => console.error(error))
             .then(resp => resp.json())
             .then(picData => {
                 dispatch({type: types.FETCH_PICS, payload: picData})})

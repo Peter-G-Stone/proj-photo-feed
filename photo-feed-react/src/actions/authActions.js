@@ -57,6 +57,7 @@ export const signup = (user) => {
 }
 
 export const authenticate = (credentials) => {
+    debugger
   return dispatch => {
     dispatch(authRequest())
     return fetch(`${API_URL}/user_token`, {
@@ -69,6 +70,7 @@ export const authenticate = (credentials) => {
       .then(res => res.json())
       .then((response) => {
           const token = response.jwt;
+          debugger
           localStorage.setItem('token', token);
           return getUser(credentials)
       })
