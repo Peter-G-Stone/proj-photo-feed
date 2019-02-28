@@ -22,7 +22,7 @@ export default class LoginPage extends Component {
 
         const email = this.state.email 
         const password = this.state.password
-        const request = {'auth': {'email': email, 'password': password}}
+        const request = JSON.stringify({'auth': {'email': email, 'password': password}})
 
         console.log('submitting ', request)
         fetch('http://localhost:3001/api/user_token',
@@ -33,8 +33,11 @@ export default class LoginPage extends Component {
                 "Content-Type": "application/json"            }
         })
         .then(resp => {
-            localStorage.setItem("jwt", resp.jwt)
-            console.log(resp.json())
+            return resp.json()
+        })
+        .then(data => {
+            localStorage.setItem("jwt", data.jwt)
+            console.log('data: ', data)
         })
     }
 

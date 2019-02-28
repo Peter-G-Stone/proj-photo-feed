@@ -9,9 +9,7 @@ import PicsContainer from './containers/PicsContainer'
 
 class App extends Component {
   
-  componentDidMount() {
-    this.props.fetchPics()
-  }
+  
   
   render() {
     return (
@@ -29,9 +27,6 @@ class App extends Component {
 }
 
 
-const mapDispatchToProps = (dispatch) => ({
-  fetchPics: () => dispatch(fetchPics())
-})
 
 
-export default connect(null, mapDispatchToProps)(App)
+export default connect(null)(App)
