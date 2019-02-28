@@ -2,6 +2,7 @@ class PicsController < ApplicationController
     # before_action :authenticate_user
 
     def index 
-        render json: Pic.all
+        pics = Pic.all
+        render json: pics, :include => :artist
     end
 end
