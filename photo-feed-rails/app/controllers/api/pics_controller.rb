@@ -1,4 +1,4 @@
-class PicsController < ApplicationController
+class Api::PicsController < ApplicationController
     # before_action :authenticate_user
 
     def index 

@@ -25,7 +25,7 @@ export default class LoginPage extends Component {
         const request = {'auth': {'email': email, 'password': password}}
 
         console.log('submitting ', request)
-        fetch('http://localhost:3001/user_token',
+        fetch('http://localhost:3001/api/user_token',
         {
             method: "POST",
             body: request,

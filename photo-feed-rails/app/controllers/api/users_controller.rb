@@ -1,4 +1,4 @@
-class UsersController < ApplicationController
+class Api::UsersController < ApplicationController
   before_action :set_user, only: [:show, :update, :destroy]
 
   # GET /users
@@ -39,8 +39,7 @@ class UsersController < ApplicationController
   end
 
 ########## implemented from https://medium.com/@christine_tran/part-1-create-react-app-rails-api-authentication-with-jwt-tokens-and-redux-e14c7e788989
-
-
+####
 def find
   @user = User.find_by(email: params[:user][:email])
   if @user
@@ -50,10 +49,6 @@ def find
     render json: @errors
   end
 end
-
-    
-
-
 ####
 
 
