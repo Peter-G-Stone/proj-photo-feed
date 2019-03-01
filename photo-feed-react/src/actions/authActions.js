@@ -57,7 +57,6 @@ export const signup = (user) => {
 }
 
 export const authenticate = (credentials, history) => {
-    debugger
   return dispatch => {
     dispatch(authRequest())
     return fetch(`${API_URL}/user_token`, {
@@ -70,7 +69,6 @@ export const authenticate = (credentials, history) => {
       .then(res => res.json())
       .then((response) => {
           const token = response.jwt;
-          debugger
           localStorage.setItem('token', token);
           history.push('/')
           window.alert('You successfully logged in!')

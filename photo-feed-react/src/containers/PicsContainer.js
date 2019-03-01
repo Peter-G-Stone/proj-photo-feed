@@ -9,7 +9,6 @@ class PicsContainer extends Component {
                    
         if (this.props.pics.length === 0){
                 this.props.fetchPics()
-                debugger
         } else {
             console.log('you are in the else in picsContainer')
             debugger

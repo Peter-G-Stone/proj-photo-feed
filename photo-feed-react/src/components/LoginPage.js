@@ -23,31 +23,7 @@ class LoginPage extends Component {
 
     handleSubmit = (e) => {
         e.preventDefault();
-
-        if (this.props.authenticate(this.state, this.props.history)) {
-        } else {
-            window.alert("Sorry, something went wrong. Please try logging in again.")
-        }
-
-        // const email = this.state.email 
-        // const password = this.state.password
-        // const request = JSON.stringify({'auth': {'email': email, 'password': password}})
-
-        // console.log('submitting ', request)
-        // fetch('http://localhost:3001/api/user_token',
-        // {
-        //     method: "POST",
-        //     body: request,
-        //     headers: {
-        //         "Content-Type": "application/json"            }
-        // })
-        // .then(resp => {
-        //     return resp.json()
-        // })
-        // .then(data => {
-        //     localStorage.setItem("jwt", data.jwt)
-        //     console.log('data: ', data)
-        // })
+        this.props.authenticate(this.state, this.props.history)
     }
 
     render() {
@@ -65,5 +41,5 @@ class LoginPage extends Component {
 }
 
 export default connect(null, {authenticate})(LoginPage)
-// the above had in Christine Tran's (as well as the commented out import line at beginning of file): 
+// the above had this in Christine Tran's example (as well as the commented out import line at beginning of file): 
 // export default Login = withRouter(connect(null, {authenticate})(Login));

@@ -10,8 +10,8 @@ import PicsContainer from './containers/PicsContainer'
 class App extends Component {
   
   
-  
   render() {
+    debugger
     return (
       <div className="App">
         <Router >
@@ -30,4 +30,11 @@ class App extends Component {
 
 
 
-export default connect(null)(App)
+const mapStateToProps = (state) => {
+  return {
+    isAuthenticated: state.authReducer.isAuthenticated,
+    user: state.authReducer.currentUser
+  }
+}
+
+export default connect(mapStateToProps)(App);
