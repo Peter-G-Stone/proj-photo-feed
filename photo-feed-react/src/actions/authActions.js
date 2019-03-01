@@ -56,7 +56,7 @@ export const signup = (user) => {
   };
 }
 
-export const authenticate = (credentials) => {
+export const authenticate = (credentials, history) => {
     debugger
   return dispatch => {
     dispatch(authRequest())
@@ -72,6 +72,7 @@ export const authenticate = (credentials) => {
           const token = response.jwt;
           debugger
           localStorage.setItem('token', token);
+          history.push('/')
           return getUser(credentials)
       })
       .then((user) => {

@@ -24,9 +24,9 @@ class LoginPage extends Component {
     handleSubmit = (e) => {
         e.preventDefault();
 
-        if (this.props.authenticate(this.state)) {
+        if (this.props.authenticate(this.state, this.props.history)) {
             debugger
-            this.props.history.push('/')
+            // this.props.history.push('/')
             window.alert("Successfully logged in.")
         } else {
             window.alert("Sorry, something went wrong. Please try logging in again.")
