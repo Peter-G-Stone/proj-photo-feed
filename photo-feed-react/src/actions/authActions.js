@@ -31,7 +31,7 @@ export const logout = () => {
   }
 }
 
-export const signup = (user) => {
+export const signup = (user, history) => {
   const newUser = user
   return dispatch => {
     return fetch(`${API_URL}/users`, {
@@ -45,19 +45,20 @@ export const signup = (user) => {
       .then(response => response.json())
       .then(jresp => {
         dispatch(authenticate({
-          name: newUser.name,
           email: newUser.email,
-          password: newUser.password})
+          password: newUser.password},
+          history)
         );
       })
       .catch((errors) => {
+        window.alert("Sorry, something went wrong. Please try again.") 
         dispatch(authFailure(errors))
       })
   };
 }
 
 export const authenticate = (credentials, history) => {
-  return dispatch => {
+    return dispatch => {
     dispatch(authRequest())
     return fetch(`${API_URL}/user_token`, {
       method: "POST",
@@ -71,7 +72,7 @@ export const authenticate = (credentials, history) => {
           const token = response.jwt;
           localStorage.setItem('token', token);
           history.push('/')
-          window.alert('You successfully logged in!')
+          window.alert('You are now logged in!')
           return getUser(credentials)
       })
       .then((user) => {
