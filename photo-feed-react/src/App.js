@@ -5,22 +5,42 @@ import { BrowserRouter as Router, Route } from 'react-router-dom'
 import LoginPage from './components/LoginPage'
 import SignUpPage from './components/SignUpPage'
 import PicsContainer from './containers/PicsContainer'
+import Navigation from './Navigation'
 
 
 class App extends Component {
   
   
   render() {
-    debugger
+
+    const {isAuthenticated, user} = this.props
+
+    const guestViews = (
+      <div id="landing-page" className="wrapper">
+        <Navigation isAuthenticated={isAuthenticated} />
+        <Route exact path="/" component={PicsContainer} />
+        {/* <Route exact path="/about" component={About} /> */}
+        <Route exact path="/login" component={LoginPage} />
+        <Route exact path="/signup" component={SignUpPage} />
+        {/* <Footer/> */}
+      </div>
+    )
+
+    const userViews = (
+      <div className="wrapper">
+        <Navigation isAuthenticated={isAuthenticated} />
+        <Route exact path="/" component={PicsContainer} />
+        {/* <Route exact path="/about" component={About} /> */}
+        {/* <Route exact path="/user_profile" render={() => <UserProfile user={user}/>} /> */}
+        {/* <Footer/> */}
+      </div>
+    )
+
+
     return (
       <div className="App">
         <Router >
-            <div>
-                <Route exact path="/" component={PicsContainer} />
-                <Route path="/login" component={LoginPage} />
-                <Route path="/signup" component={SignUpPage} />
-                {/* <Route path="/register" component={RegisterPage} /> */}
-            </div>
+            {isAuthenticated ? userViews : guestViews}
         </Router>
       </div>
     );

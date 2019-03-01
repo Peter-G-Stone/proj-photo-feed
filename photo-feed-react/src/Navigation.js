@@ -1,26 +1,25 @@
 import React, {Component} from 'react';
 import {connect} from 'react-redux';
 import { Link, withRouter } from "react-router-dom";
-import { logout } from '../actions/authActions';
+import { logout } from './actions/authActions';
 
 class Navigation extends Component {
     
     handleLogout = (e) => {
         e.preventDefault();
         this.props.logout();
+        debugger
         this.props.history.push('/')
     }
     
 
     render() {
         
-        const logoLink = (
-            <li id="logo"><Link to="/">PicFeed</Link></li>
-        )
+        
 
         const mainNav = (
             <ul>
-              {logoLink}
+                <li><Link to="/">PicFeed</Link></li>              
               <li><Link to="/about">About</Link></li>
               <li><Link to="/login">Log In</Link></li>
               <li><Link to="/signup">Sign Up</Link></li>
@@ -29,7 +28,7 @@ class Navigation extends Component {
       
         const userNav = (
             <ul>
-              {logoLink}
+            <li><Link to="/">PicFeed</Link></li>
               <li><Link to="/about">About</Link></li>
               <li><Link to="/user_profile">Profile</Link></li>
               <li onClick={(e) => this.handleLogout(e)}>Log Out</li>
@@ -46,3 +45,5 @@ class Navigation extends Component {
         )
     }
 }
+
+export default Navigation = withRouter(connect(null, {logout})(Navigation))
