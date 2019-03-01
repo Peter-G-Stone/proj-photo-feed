@@ -73,6 +73,7 @@ export const authenticate = (credentials, history) => {
           debugger
           localStorage.setItem('token', token);
           history.push('/')
+          window.alert('You successfully logged in!')
           return getUser(credentials)
       })
       .then((user) => {
@@ -80,6 +81,7 @@ export const authenticate = (credentials, history) => {
           dispatch(authSuccess(user, localStorage.token))
       })
       .catch((errors) => {
+          window.alert("Sorry, something went wrong. Please try logging in again.")
           dispatch(authFailure(errors))
           localStorage.clear()
       })
