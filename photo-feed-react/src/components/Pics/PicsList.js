@@ -7,7 +7,7 @@ export default class PicsList extends Component {
     
      mapThruPics = () => {
           return this.props.pics.map(pic => {
-              return <Pic pic={pic}/>
+              return <Pic key={pic.id} pic={pic}/>
           })
       }
     

@@ -1,6 +1,5 @@
 import React, { Component } from 'react';
 import './App.css';
-import {fetchPics} from './actions/picActions'
 import { connect } from 'react-redux'
 import { BrowserRouter as Router, Route } from 'react-router-dom'
 import LoginPage from './components/LoginPage'

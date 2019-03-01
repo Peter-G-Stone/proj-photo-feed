@@ -7,7 +7,7 @@ export function fetchPics () { //changing this off of export default to reg expe
         dispatch({type: types.LOADING_PICS})
         return fetch(`${API_URL}/pics`, {
             headers: {
-                'Authorization': `Bearer ${localStorage.getItem('token')}`
+                'Authorization': `Bearer ${localStorage.token}`
             }
         })
             .catch(error => console.error(error))
