@@ -4,7 +4,10 @@ Thurs Feb 28 5pm
     order of debuggers:  
       authenticate action, but before fetch request comes back it goes to
       history.push('/')
+      then componentDidMount and fetchPics()
+      then gets response from   the authenticate fetch request
 
+    6:15pm: still stuck where logins are lagging behind where we are trying to fetchPics(). see what I can do to prevent this async chaos
 
 
 

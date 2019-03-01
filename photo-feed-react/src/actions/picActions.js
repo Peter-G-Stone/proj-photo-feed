@@ -14,5 +14,6 @@ export function fetchPics () { //changing this off of export default to reg expe
             .then(resp => resp.json())
             .then(picData => {
                 dispatch({type: types.FETCH_PICS, payload: picData})})
+            .catch(error => console.log(error))
     }
 }
