@@ -1,3 +1,12 @@
+Fri Feb 29 7pm
+  user auth should finally be good
+      except maybe passwords not being checked for a match?
+  next:
+    user profile pages
+    saving images to your page
+    artist pages?
+  
+
 Thurs Feb 28 5pm
   remember to go back and make sure passwords match in form!
   debugging login:
