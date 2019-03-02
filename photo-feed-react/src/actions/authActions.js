@@ -42,15 +42,23 @@ export const signup = (user, history) => {
       },
       body: JSON.stringify({user: user})
     })
-      .then(response => response.json())
+      .then(response => {
+        return response.json()})
       .then(jresp => {
-        dispatch(authenticate({
-          email: newUser.email,
-          password: newUser.password},
-          history)
-        );
+        
+        if (jresp.id){ //dispatch to authenticate if user was successfully created
+            dispatch(authenticate({
+              email: newUser.email,
+              password: newUser.password},
+              history)
+            );
+        }
+        else if (jresp.email || jresp.username) {
+            fireSignUpAlertMsg(jresp)
+        }
       })
       .catch((errors) => {
+          debugger
         window.alert("Sorry, something went wrong. Please try again.") 
         dispatch(authFailure(errors))
       })
@@ -87,6 +95,7 @@ export const authenticate = (credentials, history) => {
   }
 }
 
+// this getUser is called by authenticate, it is not an action in and of itself currently (because it doesn't return a dispatch call):
 export const getUser = (credentials) => {
   const request = new Request(`${API_URL}/find_user`, {
     method: "POST",
@@ -103,4 +112,13 @@ export const getUser = (credentials) => {
     .catch(error => {
       return error;
     });
+}
+
+const fireSignUpAlertMsg = (jresp) => {
+    let alertMsg = 'Another account is already using that '
+    alertMsg = jresp.email ? alertMsg += 'email' : alertMsg
+    alertMsg = (jresp.email && jresp.username) ? alertMsg += ' and ' : alertMsg
+    alertMsg = jresp.username ? alertMsg += 'username' : alertMsg
+    alertMsg += '.'
+    window.alert(alertMsg)
 }

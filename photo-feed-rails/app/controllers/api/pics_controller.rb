@@ -5,4 +5,9 @@ class Api::PicsController < ApplicationController
         pics = Pic.all
         render json: pics, :include => :artist
     end
+
+    def addPicToUser
+        binding.pry
+    end
+
 end

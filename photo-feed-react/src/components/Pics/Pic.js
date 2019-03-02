@@ -1,13 +1,23 @@
-import React from 'react';
+import React, {Component} from 'react';
+import {connect} from 'react-redux'
 
 
-const Pic = ({pic}) => {
-    return (
-        <>
-            <p><img alt="picInList" src={pic.url}/></p>
-            <p>By: {pic.artist.name}</p>
-        </>
-    )
+class Pic extends Component {
+    constructor(props) {
+        super(props);
+    }
+
+    
+    render () {
+        const pic = this.props.pic
+        return (
+            <>
+                <p><img alt="picInList" src={pic.url}/></p>
+                <p>By: {pic.artist.name} <a href="#" onClick={this.props.savePic}>Save</a></p>
+                <p> - </p>
+            </>
+        )
+    }
 } 
 
 export default Pic

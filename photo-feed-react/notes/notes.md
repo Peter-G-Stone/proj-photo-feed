@@ -1,4 +1,8 @@
-Fri Feb 29 7pm
+Saturday Mar2 2:23PM
+  add another feature dang it 
+  haven't ensured that usernames are unique... checkout how validations on rails side would interact with json responses? - I imagine it would return a clear error message. maybe validate the email that way too dummy
+
+Fri Mar1 7pm
   user auth should finally be good
       except maybe passwords not being checked for a match?
   next:
