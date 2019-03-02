@@ -2,7 +2,7 @@
 import React, { Component } from 'react'
 import { Form, Button, Col, Grid } from 'react-bootstrap'
 import { connect } from 'react-redux'
-import { signup } from '../actions/authActions'
+import { signup, getUser } from '../actions/authActions'
 
 
 class SignUpPage extends Component {
@@ -23,27 +23,37 @@ class SignUpPage extends Component {
         this.setState({ [name]: value })
     }
 
+    // handleSubmit = (e) => {
+    //     e.preventDefault()
+    //     if (this.state.password != this.state.confirmPassword){
+    //         window.alert("Passwords don't match!")
+    //     } else {
+    //         fetch('http://localhost:3001/api/find_user', { //check if user's email is already in system
+    //             method: "POST",
+    //             headers: {
+    //                 "Accept":"application/json",
+    //                 "Content-Type":"application/json"
+    //               },
+    //               body: JSON.stringify({user: this.state})
+    //         })
+    //         .then((resp) => resp.json())
+    //         .then(jresp => {
+    //             if (jresp.status === 500){
+    //                 this.props.signup(this.state, this.props.history) // if email not in system, execute signup action
+    //             } else if (jresp.email){
+    //                 window.alert('Someone with that email is already in the system.')
+    //             }
+    //         })
+    //     }
+    // }
+
     handleSubmit = (e) => {
         e.preventDefault()
         if (this.state.password != this.state.confirmPassword){
             window.alert("Passwords don't match!")
         } else {
-            fetch('http://localhost:3001/api/find_user', { //check if user's email is already in system
-                method: "POST",
-                headers: {
-                    "Accept":"application/json",
-                    "Content-Type":"application/json"
-                  },
-                  body: JSON.stringify({user: this.state})
-            })
-            .then((resp) => resp.json())
-            .then(jresp => {
-                if (jresp.status === 500){
-                    this.props.signup(this.state, this.props.history) // if email not in system, execute signup action
-                } else if (jresp.email){
-                    window.alert('Someone with that email is already in the system.')
-                }
-            })
+            let userCheck = this.props.getUser(this.state)
+            debugger
         }
     }
 
@@ -66,6 +76,6 @@ class SignUpPage extends Component {
        )}
 }
 
-export default connect(null, {signup})(SignUpPage)
+export default connect(null, {signup, getUser})(SignUpPage)
 // the above had in Christine Tran's (as well as the commented out import line at beginning of file): 
 // export default Login = withRouter(connect(null, {authenticate})(Login));
