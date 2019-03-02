@@ -98,7 +98,8 @@ export const getUser = (credentials) => {
   })
   return fetch(request)
     .then(response => response.json())
-    .then(userJson => {return userJson})
+    .then(userJson => {
+        return userJson})
     .catch(error => {
       return error;
     });
