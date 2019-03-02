@@ -76,6 +76,12 @@ class SignUpPage extends Component {
        )}
 }
 
-export default connect(null, {signup, getUser})(SignUpPage)
+const mapDispatchToProps = (dispatch) => ({
+    signup: (credentials, history) => dispatch(signup(credentials, history)),
+    getUser: (credentials) => dispatch(getUser(credentials))
+  })
+  
+
+export default connect(null, mapDispatchToProps)(SignUpPage)
 // the above had in Christine Tran's (as well as the commented out import line at beginning of file): 
 // export default Login = withRouter(connect(null, {authenticate})(Login));
