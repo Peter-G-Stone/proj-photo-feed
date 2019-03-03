@@ -33,9 +33,9 @@ picFourteen = Pic.create(url: 'https://i.imgur.com/cHak7XF.jpg', artist: artistT
 #     artistTwo.pics << Pic.all[i]
 # end
 
-peter = User.create(username: 'peter', email: 'pmail@gmail.com', password: 'password', admin: true, pics: [picOne, picTwo])
-annie = User.create(username: 'annie', email: 'amail@gmail.com', password: 'password', pics: [picTwo, picThree])
-sophie = User.create(username: 'sophie', email: 'smail@gmail.com', password: 'password', pics: [picFour])
+peter = User.create(username: 'peter', email: 'pmail@gmail.com', password: 'password', admin: true)
+annie = User.create(username: 'annie', email: 'amail@gmail.com', password: 'password')
+sophie = User.create(username: 'sophie', email: 'smail@gmail.com', password: 'password')
 
 
 
