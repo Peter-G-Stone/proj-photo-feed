@@ -27,10 +27,8 @@ ActiveRecord::Schema.define(version: 2019_03_03_010406) do
   end
 
   create_table "pics_users", id: false, force: :cascade do |t|
-    t.integer "pic_id_id"
-    t.integer "user_id_id"
-    t.index ["pic_id_id"], name: "index_pics_users_on_pic_id_id"
-    t.index ["user_id_id"], name: "index_pics_users_on_user_id_id"
+    t.integer "pic_id", null: false
+    t.integer "user_id", null: false
   end
 
   create_table "users", force: :cascade do |t|
