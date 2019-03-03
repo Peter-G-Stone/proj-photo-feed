@@ -6,8 +6,6 @@ class Api::PicsController < ApplicationController
         render json: pics, :include => :artist
     end
 
-    def addPicToUser
-        binding.pry
-    end
+    
 
 end

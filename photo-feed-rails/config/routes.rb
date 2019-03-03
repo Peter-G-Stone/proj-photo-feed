@@ -6,5 +6,6 @@ Rails.application.routes.draw do
     post '/login' => 'sessions#create'
     get '/pics' => 'pics#index'
     post 'find_user' => 'users#find'
+    post '/add_pic_to_user' => 'users#addPicToUser'
   end
 end
