@@ -1,3 +1,12 @@
+
+
+Saturday Mar2 8:30PM
+  still not getting join table pics_users right. jeez.
+
+
+Saturday Mar2 7:18PM
+  def need to redo association between users and pics to use a join table
+
 Saturday Mar2 2:23PM
   add another feature dang it 
   haven't ensured that usernames are unique... checkout how validations on rails side would interact with json responses? - I imagine it would return a clear error message. maybe validate the email that way too dummy

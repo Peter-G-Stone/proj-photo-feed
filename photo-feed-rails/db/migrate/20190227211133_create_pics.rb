@@ -3,7 +3,6 @@ class CreatePics < ActiveRecord::Migration[5.2]
     create_table :pics do |t|
       t.string :url
       t.belongs_to :artist, index: true
-      t.belongs_to :user, index: true
       t.timestamps
     end
   end

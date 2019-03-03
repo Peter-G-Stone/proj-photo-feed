@@ -9,7 +9,21 @@ class Pic extends Component {
     }
 
     savePic = () => {
-        debugger
+        fetch('http://localhost:3001/api/add_pic_to_user', {
+            method: "POST",
+            headers: {
+                "Accept":"application/json",
+                "Content-Type":"application/json"
+              },
+              body: JSON.stringify({request: {
+                  user: this.props.currentUser, 
+                  pic: this.props.pic}})
+        })
+        .then(resp => resp.json())
+        .then(jresp => {
+            debugger
+            return jresp
+        })
     }
 
     
