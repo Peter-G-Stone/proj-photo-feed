@@ -8,7 +8,8 @@ class Pic extends Component {
         super(props);
     }
 
-    savePic = () => {
+    savePic = (e) => {
+        e.preventDefault()
         fetch('http://localhost:3001/api/add_pic_to_user', {
             method: "POST",
             headers: {
@@ -32,7 +33,7 @@ class Pic extends Component {
         return (
             <>
                 <p><img alt="picInList" src={pic.url}/></p>
-                <p>By: {pic.artist.name} <a href="#" onClick={() => this.savePic()}>Save</a></p>
+                <p>By: {pic.artist.name} <a href="#" onClick={(e) => this.savePic(e)}>Save</a></p>
                 <p> - </p>
             </>
         )

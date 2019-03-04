@@ -37,20 +37,22 @@ class Api::UsersController < ApplicationController
     @user.destroy
   end
 
-########## implemented from https://medium.com/@christine_tran/part-1-create-react-app-rails-api-authentication-with-jwt-tokens-and-redux-e14c7e788989
-####
-def find
-  @user = User.find_by(email: params[:user][:email])
-  if @user
-    render json: @user
-  else
-    @errors = @user.errors.full_messages
-    render json: @errors
+  ########## implemented from https://medium.com/@christine_tran/part-1-create-react-app-rails-api-authentication-with-jwt-tokens-and-redux-e14c7e788989
+  ####
+  def find
+    @user = User.find_by(email: params[:user][:email])
+    if @user
+      render json: @user
+    else
+      @errors = @user.errors.full_messages
+      render json: @errors
+    end
   end
-end
-####
+  ####
 
   def addPicToUser
+    user = User.find(params[:request][:user][:id])
+    
     binding.pry
   end
 
@@ -64,4 +66,5 @@ end
     def user_params
       params.require(:user).permit(:email, :username, :password, :admin)
     end
+
 end

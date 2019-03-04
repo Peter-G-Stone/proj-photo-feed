@@ -1,4 +1,5 @@
-
+Sun Mar3 12:15pm
+  got join table babyyyy
 
 Saturday Mar2 8:30PM
   still not getting join table pics_users right. jeez.
@@ -106,3 +107,8 @@ idea!
 
 
     
+
+what to write about:
+  bring up this :  https://www.bhalash.com/archives/13544808137
+
+  
