@@ -6,7 +6,7 @@ import {fetchPics} from '../actions/picActions'
 class PicsContainer extends Component {
     
     componentDidMount() {
-                   
+              
         if (this.props.pics.length === 0){
                 this.props.fetchPics()
         } else {

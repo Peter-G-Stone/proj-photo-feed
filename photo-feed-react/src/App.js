@@ -11,6 +11,16 @@ import SavedPicsContainer from './containers/SavedPicsContainer'
 
 class App extends Component {
   
+  componentDidMount() {
+    if (localStorage.token && !isAuthenticated){
+      // get current_user from api
+      // this is so if the user refreshes and deletes the store, we can keep them logged in
+
+      
+
+    }
+  }
+  
   render() {
 
     const {isAuthenticated, user} = this.props

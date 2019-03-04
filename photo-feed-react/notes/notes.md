@@ -1,3 +1,11 @@
+Mon Mar4 1:39pm
+  saving pics all good
+  next maintain login despite page refresh
+  then unsaving
+  then css and styyyyllllleeee
+  then artist pages
+  then comments and likes
+
 Sun Mar3 11:50pm
   take note of how if you refresh it no longer knows that you're logged in. hmm
   currenlty on: handling json response when you save a pic is creating an error

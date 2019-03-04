@@ -1,6 +1,6 @@
 class Api::UsersController < ApplicationController
   before_action :set_user, only: [:show, :update, :destroy]
-  before_action :authenticate_user, only: [:addPicToUser]
+  before_action :authenticate_user, only: [:addPicToUser, :findWithToken]
 
   # GET /users
   def index
