@@ -1,3 +1,8 @@
+Sun Mar3 11:50pm
+  take note of how if you refresh it no longer knows that you're logged in. hmm
+  currenlty on: handling json response when you save a pic is creating an error
+    tho it is successfully saving the pic
+
 Sun Mar3 12:15pm
   got join table babyyyy
 
@@ -111,4 +116,3 @@ idea!
 what to write about:
   bring up this :  https://www.bhalash.com/archives/13544808137
 
-  

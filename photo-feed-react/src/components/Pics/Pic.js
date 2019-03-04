@@ -30,10 +30,10 @@ class Pic extends Component {
     renderSaveButton = () => {
         if (this.props.currentUser.username){
             let userHasSavedPic = this.props.currentUser.pics.map(picIdObj => picIdObj.id).includes(this.props.pic.id)
-            if (!userHasSavedPic) {
-                return <p><a href="#" onClick={(e) => this.savePic(e)}>Save</a></p>
-            } else {
+            if (userHasSavedPic) {
                 return <p>Already In Your Collection</p>
+            } else {
+                return <p><a href="#" onClick={(e) => this.savePic(e)}>Save</a></p>
             }
         }
     }
@@ -48,7 +48,7 @@ class Pic extends Component {
                 <p>By: {pic.artist.name}</p>
                 
                 <p>Current user: {this.props.currentUser.username}</p>
-                <p>{this.renderSaveButton()}</p>
+                {this.renderSaveButton()}
                 <p> - </p>
             </>
         )
