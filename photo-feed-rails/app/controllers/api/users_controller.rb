@@ -1,5 +1,6 @@
 class Api::UsersController < ApplicationController
   before_action :set_user, only: [:show, :update, :destroy]
+  before_action :authenticate_user, only: [:addPicToUser]
 
   # GET /users
   def index
@@ -40,7 +41,8 @@ class Api::UsersController < ApplicationController
   ########## implemented from https://medium.com/@christine_tran/part-1-create-react-app-rails-api-authentication-with-jwt-tokens-and-redux-e14c7e788989
   ####
   def find
-    @user = User.find_by(email: params[:user][:email])
+    # @user = User.find_by(email: params[:user][:email])
+    @user = current_user
     if @user
       render json: @user, :include => {:pics => {:only =>  :id}}
     else
@@ -51,12 +53,22 @@ class Api::UsersController < ApplicationController
   ####
 
   def addPicToUser
-    user = User.find(params[:request][:user][:id])
-    pic = Pic.find(params[:request][:pic][:id])
+    user = current_user
+    # user = current_user
+    pic = Pic.find(params[:pic][:id])
     user.pics << pic
     user.save
+    render json: user, :include => {:pics => {:only =>  :id}}
+  end
+
+
+  ####
+  def findWithToken
     binding.pry
   end
+
+  ####
+
 
   private
     # Use callbacks to share common setup or constraints between actions.

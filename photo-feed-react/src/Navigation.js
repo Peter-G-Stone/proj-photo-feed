@@ -17,21 +17,21 @@ class Navigation extends Component {
         
 
         const mainNav = (
-            <ul>
-                <li><Link to="/">PicList</Link></li>              
-              <li><Link to="/about">About</Link></li>
-              <li><Link to="/login">Log In</Link></li>
-              <li><Link to="/signup">Sign Up</Link></li>
-            </ul>
+           <>
+                <Link to="/">PicList</Link> | 
+              <Link to="/about"> About</Link> | 
+              <Link to="/login"> Log In</Link> | 
+              <Link to="/signup"> Sign Up</Link> 
+            </>
         )
       
         const userNav = (
-            <ul>
-            <li><Link to="/">PicList</Link></li>
-              <li><Link to="/about">About</Link></li>
-              <li><Link to="/saved_pics">Saved Pics</Link></li>
-              <li onClick={(e) => this.handleLogout(e)}>Log Out</li>
-            </ul>
+            <>
+            <Link to="/">PicList</Link> | 
+              <Link to="/about"> About</Link> | 
+              <Link to="/saved_pics"> Saved Pics</Link> | 
+              <Link to="#" onClick={(e) => this.handleLogout(e)}> Log Out</Link>
+            </>
         );
       
         

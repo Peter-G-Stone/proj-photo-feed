@@ -1,5 +1,6 @@
 import React, {Component} from 'react';
 import {connect} from 'react-redux'
+import { savePic } from '../../actions/picActions'
 
 
 
@@ -8,23 +9,10 @@ class Pic extends Component {
     //     super(props);
     // }
 
-    savePic = (e) => {
+    handleSavePic = (e) => {
         e.preventDefault()
-        fetch('http://localhost:3001/api/add_pic_to_user', {
-            method: "POST",
-            headers: {
-                "Accept":"application/json",
-                "Content-Type":"application/json"
-              },
-              body: JSON.stringify({request: {
-                  user: this.props.currentUser, 
-                  pic: this.props.pic}})
-        })
-        .then(resp => resp.json())
-        .then(jresp => {
-            debugger
-            return jresp
-        })
+        this.props.savePic(this.props.pic)
+        
     }
 
     renderSaveButton = () => {
@@ -33,7 +21,7 @@ class Pic extends Component {
             if (userHasSavedPic) {
                 return <p>Already In Your Collection - UNSAVE LINK GOES HERE</p>
             } else {
-                return <p><a href="#" onClick={(e) => this.savePic(e)}>Save</a></p>
+                return <p><a href="#" onClick={(e) => this.handleSavePic(e)}>Save</a></p>
             }
         }
     }
@@ -47,7 +35,6 @@ class Pic extends Component {
                 <p><img alt="picInList" src={pic.url}/></p>
                 <p>By: {pic.artist.name}</p>
                 
-                <p>Current user: {this.props.currentUser.username}</p>
                 {this.renderSaveButton()}
                 <p> - </p>
             </>
@@ -59,4 +46,8 @@ const mapStateToProps = (state) => {
     return {currentUser: state.authReducer.currentUser}
 }
 
-export default connect(mapStateToProps)(Pic)
+const mapDispatchToProps = (dispatch) => ({
+    savePic: (pic) => dispatch(savePic(pic))
+  })
+
+export default connect(mapStateToProps, mapDispatchToProps)(Pic)

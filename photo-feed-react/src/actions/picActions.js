@@ -17,3 +17,27 @@ export function fetchPics () { //changing this off of export default to reg expe
             .catch(error => console.log(error))
     }
 }
+
+export function savePic(pic) {
+    return (dispatch) => {
+        dispatch({type: types.LOADING_PICS})
+        return fetch(`${API_URL}/add_pic_to_user`, {
+            method: "POST",
+            headers: {
+                "Accept":"application/json",
+                "Content-Type":"application/json",
+                'Authorization': `Bearer ${localStorage.token}`
+              },
+              body: JSON.stringify({
+                  pic: pic})
+        })
+        .then(resp => resp.json())
+        .then(jresp => {
+            return dispatch({
+                type: types.AUTHENTICATION_SUCCESS,
+                user: jresp,
+                token: localStorage.token
+            })
+        })
+    }
+}
