@@ -1,6 +1,6 @@
 class Api::UsersController < ApplicationController
   before_action :set_user, only: [:show, :update, :destroy]
-  before_action :authenticate_user, only: [:addPicToUser, :findWithToken]
+  before_action :authenticate_user, only: [:addPicToUser, :removePicFromUser, :findWithToken]
 
   # GET /users
   def index
@@ -59,6 +59,14 @@ class Api::UsersController < ApplicationController
     user.pics << pic
     user.save
     render json: user, :include => {:pics => {:only =>  :id}}
+  end
+
+  def removePicFromUser
+    user = current_user
+    pic = Pic.find(params[:pic][:id])
+    user.pics.delete(pic)
+    user.save
+    render json: user, :include => {:pics => {:only =>  :id}}    
   end
 
 

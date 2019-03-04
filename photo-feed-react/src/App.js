@@ -16,7 +16,6 @@ class App extends Component {
     if (localStorage.token && !this.props.isAuthenticated){
       // get current_user from api
       // this is so if the user refreshes and deletes the store, we can keep them logged in
-      debugger
       this.props.findUserWithToken()
       
     }

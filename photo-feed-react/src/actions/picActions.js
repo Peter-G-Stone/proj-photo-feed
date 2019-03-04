@@ -50,7 +50,7 @@ export function savePic(pic) {
 export function unSavePic(pic) {
     return (dispatch) => {
         dispatch({type: types.LOADING_PICS})
-        return fetch(`${API_URL}/add_pic_to_user`, {
+        return fetch(`${API_URL}/remove_pic_from_user`, {
             method: "POST",
             headers: {
                 "Accept":"application/json",
