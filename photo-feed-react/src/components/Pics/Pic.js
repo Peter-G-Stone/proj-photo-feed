@@ -4,9 +4,9 @@ import {connect} from 'react-redux'
 
 
 class Pic extends Component {
-    constructor(props) {
-        super(props);
-    }
+    // constructor(props) {
+    //     super(props);
+    // }
 
     savePic = (e) => {
         e.preventDefault()
@@ -31,7 +31,7 @@ class Pic extends Component {
         if (this.props.currentUser.username){
             let userHasSavedPic = this.props.currentUser.pics.map(picIdObj => picIdObj.id).includes(this.props.pic.id)
             if (userHasSavedPic) {
-                return <p>Already In Your Collection</p>
+                return <p>Already In Your Collection - UNSAVE LINK GOES HERE</p>
             } else {
                 return <p><a href="#" onClick={(e) => this.savePic(e)}>Save</a></p>
             }
