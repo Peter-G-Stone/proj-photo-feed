@@ -39,9 +39,11 @@ class App extends Component {
     const userViews = (
       <div className="wrapper">
         <Navigation isAuthenticated={isAuthenticated} />
-        <Route exact path="/" component={PicsContainer} />
+        <Route exact path="/" render={(props) => <PicsContainer {...props} containerFor="pic_list"/>} />
         {/* <Route exact path="/about" component={About} /> */}
-        <Route exact path="/saved_pics" render={() => <SavedPicsContainer/>} />
+        <Route exact path="/saved_pics" render={(props) => <PicsContainer {...props} containerFor="saved_pics"/>} />
+        <Route exact path="/artist_page" render={(props) => <PicsContainer {...props} containerFor="artist_page"/>} />
+        {/* <Route exact path="/saved_pics" render={() => <SavedPicsContainer/>} /> */}
         {/* <Footer/> */}
       </div>
     )

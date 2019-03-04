@@ -1,3 +1,9 @@
+stateless components count:
+  loginPage
+  signupPage
+  PicsList
+  maybe should convert Pic
+  then I'd need just one more to hit req
 
 
 
@@ -137,4 +143,5 @@ idea!
 
 what to write about:
   bring up this :  https://www.bhalash.com/archives/13544808137
-
+  something about this : https://apidock.com/rails/ActiveRecord/Associations/CollectionProxy/delete
+  
