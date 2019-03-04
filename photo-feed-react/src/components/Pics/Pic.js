@@ -1,6 +1,6 @@
 import React, {Component} from 'react';
 import {connect} from 'react-redux'
-import { savePic } from '../../actions/picActions'
+import { savePic, unSavePic } from '../../actions/picActions'
 
 
 
@@ -15,11 +15,16 @@ class Pic extends Component {
         
     }
 
-    renderSaveButton = () => {
+    handleUnSavePic = (e) => {
+        e.preventDefault()
+        this.props.unSavePic(this.props.pic)
+    }
+
+    renderSaveToggle = () => {
         if (this.props.currentUser.username){
             let userHasSavedPic = this.props.currentUser.pics.map(picIdObj => picIdObj.id).includes(this.props.pic.id)
             if (userHasSavedPic) {
-                return <p>Already In Your Collection - UNSAVE LINK GOES HERE</p>
+                return <p>Already In Your Collection - <a href="#" onClick={(e) => this.handleUnSavePic(e)}>UnSave</a></p>
             } else {
                 return <p><a href="#" onClick={(e) => this.handleSavePic(e)}>Save</a></p>
             }
@@ -35,7 +40,7 @@ class Pic extends Component {
                 <p><img alt="picInList" src={pic.url}/></p>
                 <p>By: {pic.artist.name}</p>
                 
-                {this.renderSaveButton()}
+                {this.renderSaveToggle()}
                 <p> - </p>
             </>
         )
@@ -47,7 +52,8 @@ const mapStateToProps = (state) => {
 }
 
 const mapDispatchToProps = (dispatch) => ({
-    savePic: (pic) => dispatch(savePic(pic))
+    savePic: (pic) => dispatch(savePic(pic)),
+    unSavePic: (pic) => dispatch(unSavePic(pic))
   })
 
 export default connect(mapStateToProps, mapDispatchToProps)(Pic)

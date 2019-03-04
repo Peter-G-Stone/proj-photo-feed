@@ -1,4 +1,18 @@
+
+
+
+Mon Mar4 3:47pm
+  maintains logins now
+
+  next: unsaving
+  then css and styyyyllllleeee
+  then artist pages
+  then comments and likes
+
+
+
 Mon Mar4 1:39pm
+
   saving pics all good
   next maintain login despite page refresh
   then unsaving

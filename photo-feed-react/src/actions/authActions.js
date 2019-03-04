@@ -43,7 +43,7 @@ export const findUserWithToken = () => {
         })
         .then(resp => resp.json())
         .then(userJson => {
-          dispatch(authSuccess(userJson, localStorage.token))
+          dispatch(authSuccess(userJson, localStorage.token))          
     })
   }
 }
@@ -70,7 +70,8 @@ export const signup = (user, history) => {
               history)
             );
         }
-        else if (jresp.email || jresp.username) {
+        else if (jresp.email || jresp.username) { 
+          // this handles if email or password already taken
             fireSignUpAlertMsg(jresp)
         }
       })
