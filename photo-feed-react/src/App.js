@@ -7,17 +7,18 @@ import SignUpPage from './components/SignUpPage'
 import PicsContainer from './containers/PicsContainer'
 import Navigation from './Navigation'
 import SavedPicsContainer from './containers/SavedPicsContainer'
+import { findUserWithToken } from './actions/authActions';
 
 
 class App extends Component {
   
   componentDidMount() {
-    if (localStorage.token && !isAuthenticated){
+    if (localStorage.token && !this.props.isAuthenticated){
       // get current_user from api
       // this is so if the user refreshes and deletes the store, we can keep them logged in
-
+      debugger
+      this.props.findUserWithToken()
       
-
     }
   }
   
@@ -67,4 +68,8 @@ const mapStateToProps = (state) => {
   }
 }
 
-export default connect(mapStateToProps)(App);
+const mapDispatchToProps = (dispatch) => ({
+  findUserWithToken: () => dispatch(findUserWithToken())
+})
+
+export default connect(mapStateToProps, mapDispatchToProps)(App);

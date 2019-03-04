@@ -64,7 +64,8 @@ class Api::UsersController < ApplicationController
 
   ####
   def findWithToken
-    binding.pry
+    user = current_user
+    render json: user, :include => {:pics => {:only =>  :id}} 
   end
 
   ####

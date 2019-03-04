@@ -31,6 +31,23 @@ export const logout = () => {
   }
 }
 
+export const findUserWithToken = () => {
+  return dispatch => {
+    return fetch('http://localhost:3001/api/find_user_with_token', {
+          method: "POST",
+          headers: new Headers({
+            "Content-Type": "application/json",
+            "Authorization": `Bearer ${localStorage.token}`,
+          }),
+          body: JSON.stringify({token: localStorage.token})
+        })
+        .then(resp => resp.json())
+        .then(userJson => {
+          dispatch(authSuccess(userJson, localStorage.token))
+    })
+  }
+}
+
 export const signup = (user, history) => {
   const newUser = user
   return dispatch => {
