@@ -6,13 +6,12 @@ import LoginPage from './components/LoginPage'
 import SignUpPage from './components/SignUpPage'
 import PicsContainer from './containers/PicsContainer'
 import Navigation from './Navigation'
-import UserProfileContainer from './containers/UserProfileContainer'
+import SavedPicsContainer from './containers/SavedPicsContainer'
 
 
 class App extends Component {
   
   render() {
-    debugger
 
     const {isAuthenticated, user} = this.props
 
@@ -32,7 +31,7 @@ class App extends Component {
         <Navigation isAuthenticated={isAuthenticated} />
         <Route exact path="/" component={PicsContainer} />
         {/* <Route exact path="/about" component={About} /> */}
-        <Route exact path="/user_profile" render={() => <UserProfileContainer/>} />
+        <Route exact path="/saved_pics" render={() => <SavedPicsContainer/>} />
         {/* <Footer/> */}
       </div>
     )

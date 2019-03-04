@@ -11,8 +11,6 @@ class PicsContainer extends Component {
                 this.props.fetchPics()
         } else {
             console.log('you are in the else in picsContainer')
-            debugger
-            // redirect somewhere if they're not logged in
         }
     }
 

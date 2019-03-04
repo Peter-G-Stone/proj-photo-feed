@@ -2,7 +2,7 @@ import React, { Component } from 'react';
 import PicsList from '../components/Pics/PicsList'
 import {connect} from 'react-redux'
 
-class UserProfileContainer extends Component {
+class SavedPicsContainer extends Component {
     
     filterForUserPics = () => {
         const userPicIds = this.props.user.pics.map(picObj => picObj.id)
@@ -30,4 +30,4 @@ const mapStateToProps = (state) => {
 //   })
   
 
-export default connect(mapStateToProps)(UserProfileContainer)
+export default connect(mapStateToProps)(SavedPicsContainer)
