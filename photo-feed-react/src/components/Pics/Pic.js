@@ -27,13 +27,28 @@ class Pic extends Component {
         })
     }
 
+    renderSaveButton = () => {
+        if (this.props.currentUser.username){
+            let userHasSavedPic = this.props.currentUser.pics.map(picIdObj => picIdObj.id).includes(this.props.pic.id)
+            if (!userHasSavedPic) {
+                return <p><a href="#" onClick={(e) => this.savePic(e)}>Save</a></p>
+            } else {
+                return <p>Already In Your Collection</p>
+            }
+        }
+    }
+
     
     render () {
         const pic = this.props.pic
+        
         return (
             <>
                 <p><img alt="picInList" src={pic.url}/></p>
-                <p>By: {pic.artist.name} <a href="#" onClick={(e) => this.savePic(e)}>Save</a></p>
+                <p>By: {pic.artist.name}</p>
+                
+                <p>Current user: {this.props.currentUser.username}</p>
+                <p>{this.renderSaveButton()}</p>
                 <p> - </p>
             </>
         )

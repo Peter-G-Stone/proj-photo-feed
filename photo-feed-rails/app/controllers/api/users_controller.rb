@@ -42,7 +42,7 @@ class Api::UsersController < ApplicationController
   def find
     @user = User.find_by(email: params[:user][:email])
     if @user
-      render json: @user
+      render json: @user, :include => {:pics => {:only =>  :id}}
     else
       @errors = @user.errors.full_messages
       render json: @errors
@@ -52,7 +52,9 @@ class Api::UsersController < ApplicationController
 
   def addPicToUser
     user = User.find(params[:request][:user][:id])
-    
+    pic = Pic.find(params[:request][:pic][:id])
+    user.pics << pic
+    user.save
     binding.pry
   end
 
