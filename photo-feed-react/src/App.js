@@ -28,7 +28,7 @@ class App extends Component {
     const guestViews = (
       <div id="landing-page" className="wrapper">
         <Navigation isAuthenticated={isAuthenticated} />
-        <Route exact path="/" component={PicsContainer} />
+        <Route exact path="/" render={(props) => <PicsContainer {...props} containerFor="pic_list"/>} />
         {/* <Route exact path="/about" component={About} /> */}
         <Route exact path="/login" component={LoginPage} />
         <Route exact path="/signup" component={SignUpPage} />

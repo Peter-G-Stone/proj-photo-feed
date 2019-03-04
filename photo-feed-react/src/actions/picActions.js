@@ -35,6 +35,7 @@ export function savePic(pic) {
         })
         .then(resp => resp.json())
         .then(jresp => {
+            dispatch({type: types.DONE_LOADING_PICS})
             return dispatch({ //sending this off is intended to refresh the user's cache of pics now that we just added this one  
                 type: types.AUTHENTICATION_SUCCESS,
                 user: jresp,
@@ -62,6 +63,7 @@ export function unSavePic(pic) {
         })
         .then(resp => resp.json())
         .then(jresp => {
+            dispatch({type: types.DONE_LOADING_PICS})            
             return dispatch({ //sending this off is intended to refresh the user's cache of pics now that we just added this one  
                 type: types.AUTHENTICATION_SUCCESS,
                 user: jresp,

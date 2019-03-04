@@ -4,8 +4,7 @@ import Pic from './Pic'
 export default class PicsList extends Component {
     
 
-    
-     mapThruPics = () => {
+    mapThruPics = () => {
         if (this.props.pics.length === 0){
             return <p>You haven't saved any pictures yet!</p>
         } else {

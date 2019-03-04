@@ -6,7 +6,6 @@ import {fetchPics} from '../actions/picActions'
 class PicsContainer extends Component {
     
     componentDidMount() {
-              
         if (this.props.pics.length === 0){
                 this.props.fetchPics()
         } else {
@@ -14,19 +13,47 @@ class PicsContainer extends Component {
         }
     }
 
-    
+    filterForUserPics = () => {
+        const userPicIds = this.props.user.pics.map(picObj => picObj.id)
+        const UserPics = this.props.pics.filter(pic => userPicIds.includes(pic.id))
+        return UserPics
+    }
+
+    // filterForArtistPics = () => {
+    //     const userPicIds = this.props.user.pics.map(picObj => picObj.id)
+    //     const UserPics = this.props.pics.filter(pic => userPicIds.includes(pic.id))
+    //     return UserPics
+    // }
     
     render() {
-        return(
-            <> 
-            <PicsList pics={this.props.pics} />
-            </>
-        )
+        let filteredPics
+        if (this.props.containerFor === "pic_list"){
+            filteredPics = this.props.pics
+        } 
+        else if (this.props.containerFor === "saved_pics"){
+            filteredPics = this.filterForUserPics()
+        } 
+
+        if (this.props.loading){
+            return (
+                <p> Loading...</p>
+            )
+        } else {
+            return(
+                <> 
+                <PicsList pics={filteredPics} />
+                </>
+            )
+        }
     }
 }
 
 const mapStateToProps = (state) => {
-    return {pics: state.picsReducer.pics}
+    return {
+        pics: state.picsReducer.pics,
+        loading: state.picsReducer.loading,
+        user: state.authReducer.currentUser
+    }
 }
 
 const mapDispatchToProps = (dispatch) => ({
