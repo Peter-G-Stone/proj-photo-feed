@@ -22,7 +22,6 @@ export function fetchPics () { //changing this off of export default to reg expe
 
 export function savePic(pic) {
     return (dispatch) => {
-        dispatch({type: types.LOADING_PICS})
         return fetch(`${API_URL}/add_pic_to_user`, {
             method: "POST",
             headers: {
@@ -35,7 +34,6 @@ export function savePic(pic) {
         })
         .then(resp => resp.json())
         .then(jresp => {
-            dispatch({type: types.DONE_LOADING_PICS})
             return dispatch({ //sending this off is intended to refresh the user's cache of pics now that we just added this one  
                 type: types.AUTHENTICATION_SUCCESS,
                 user: jresp,
@@ -50,7 +48,6 @@ export function savePic(pic) {
 
 export function unSavePic(pic) {
     return (dispatch) => {
-        dispatch({type: types.LOADING_PICS})
         return fetch(`${API_URL}/remove_pic_from_user`, {
             method: "POST",
             headers: {
@@ -63,7 +60,6 @@ export function unSavePic(pic) {
         })
         .then(resp => resp.json())
         .then(jresp => {
-            dispatch({type: types.DONE_LOADING_PICS})            
             return dispatch({ //sending this off is intended to refresh the user's cache of pics now that we just added this one  
                 type: types.AUTHENTICATION_SUCCESS,
                 user: jresp,

@@ -6,7 +6,7 @@ export default class PicsList extends Component {
 
     mapThruPics = () => {
         if (this.props.pics.length === 0){
-            return <p>You haven't saved any pictures yet!</p>
+            return <p>There aren't any pictures here!</p>
         } else {
             return this.props.pics.map(pic => {
                   return <Pic key={pic.id} pic={pic}/>
