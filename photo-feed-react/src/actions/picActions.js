@@ -19,6 +19,27 @@ export function fetchPics () { //changing this off of export default to reg expe
 }
 
 
+export function fetchArtistPics (artistId) { 
+    return (dispatch) => { 
+        dispatch({type: types.LOADING_PICS})
+        return fetch(`${API_URL}/artist_pics`, {
+            method: "POST",
+            headers: {
+                'Authorization': `Bearer ${localStorage.token}`,
+                "Accept":"application/json",
+                "Content-Type":"application/json"
+            },
+            body: JSON.stringify({artistId: artistId})
+        })
+            .catch(error => console.error(error))
+            .then(resp => resp.json())
+            .then(picData => {
+                dispatch({type: types.FETCH_ARTIST_PICS, payload: picData})})
+            .catch(error => console.log(error))
+    }
+}
+
+
 
 export function savePic(pic) {
     return (dispatch) => {

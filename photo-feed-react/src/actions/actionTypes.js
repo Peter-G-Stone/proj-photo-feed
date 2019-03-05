@@ -6,5 +6,6 @@ export const LOGOUT = "LOGOUT"
 export const LOADING_PICS = "LOADING_PICS"
 export const DONE_LOADING_PICS = "DONE_LOADING_PICS"
 export const FETCH_PICS = "FETCH_PICS"
+export const FETCH_ARTIST_PICS = "FETCH_ARTIST_PICS"
 
 // export const SAVE_PIC = "SAVE_PIC"

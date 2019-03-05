@@ -17,7 +17,7 @@ export default class PicsList extends Component {
     
     render() {
        return (
-          <><h3>PicList!</h3> 
+          <>
               {this.mapThruPics()}
           </>
 

@@ -22,6 +22,9 @@ class Navigation extends Component {
               <Link to="/about"> About</Link> | 
               <Link to="/login"> Log In</Link> | 
               <Link to="/signup"> Sign Up</Link> 
+              <h3>
+                  PicList!
+              </h3>
             </>
         )
       
@@ -31,6 +34,9 @@ class Navigation extends Component {
               <Link to="/about"> About</Link> | 
               <Link to="/saved_pics"> Saved Pics</Link> | 
               <Link to="#" onClick={(e) => this.handleLogout(e)}> Log Out</Link>
+              <h3>
+                  PicList!
+              </h3>
             </>
         );
       

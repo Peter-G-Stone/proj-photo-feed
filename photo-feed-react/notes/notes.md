@@ -2,8 +2,10 @@ stateless components count:
   loginPage
   signupPage
   PicsList
+  Navigation
+  
   maybe should convert Pic
-  then I'd need just one more to hit req
+  --- just one more to hit req
 
 
 

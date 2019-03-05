@@ -6,7 +6,6 @@ import LoginPage from './components/LoginPage'
 import SignUpPage from './components/SignUpPage'
 import PicsContainer from './containers/PicsContainer'
 import Navigation from './Navigation'
-import SavedPicsContainer from './containers/SavedPicsContainer'
 import { findUserWithToken } from './actions/authActions';
 
 

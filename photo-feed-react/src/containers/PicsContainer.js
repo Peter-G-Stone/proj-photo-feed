@@ -19,11 +19,6 @@ class PicsContainer extends Component {
         return UserPics
     }
 
-    // filterForArtistPics = () => {
-    //     const userPicIds = this.props.user.pics.map(picObj => picObj.id)
-    //     const UserPics = this.props.pics.filter(pic => userPicIds.includes(pic.id))
-    //     return UserPics
-    // }
     
     render() {
         let filteredPics
@@ -33,6 +28,9 @@ class PicsContainer extends Component {
         else if (this.props.containerFor === "saved_pics"){
             filteredPics = this.filterForUserPics()
         } 
+        else if (this.props.containerFor === "artist_page"){
+            filteredPics = this.props.artistPics
+        } 
 
         if (this.props.loading){
             return (
@@ -40,7 +38,8 @@ class PicsContainer extends Component {
             )
         } else {
             return(
-                <> 
+                <>
+                {/* insert a function to render a subtitle - user page or artist page */}
                 <PicsList pics={filteredPics} />
                 </>
             )
@@ -51,6 +50,7 @@ class PicsContainer extends Component {
 const mapStateToProps = (state) => {
     return {
         pics: state.picsReducer.pics,
+        artistPics: state.picsReducer.artistPics,
         loading: state.picsReducer.loading,
         user: state.authReducer.currentUser
     }

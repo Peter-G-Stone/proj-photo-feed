@@ -7,6 +7,7 @@ Rails.application.routes.draw do
     post '/find_user_with_token' => 'users#findWithToken'
 
     get '/pics' => 'pics#index'
+    post '/artist_pics' => 'pics#artist_pics'
 
     post 'find_user' => 'users#find'
  
