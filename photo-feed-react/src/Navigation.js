@@ -1,6 +1,8 @@
 import React, {Component} from 'react';
 import {connect} from 'react-redux';
-import {Nav, NavItem, Navbar} from 'react-bootstrap';
+import {Nav, Navbar} from 'react-bootstrap';
+import NavbarBrand from 'react-bootstrap/NavbarBrand';
+// import Navbar from 'react-bootstrap/Navbar';
 import { Link, withRouter } from "react-router-dom";
 import { logout } from './actions/authActions';
 import "./App.css"
@@ -16,40 +18,33 @@ class Navigation extends Component {
     
 
     render() {
-        
-        
 
         const mainNav = (
             <>
-                <NavItem> <Link to="/about">About</Link></NavItem> 
-                <NavItem><Link to="/login">Login</Link></NavItem>
-                <NavItem><Link to="/signup">Sign Up</Link></NavItem>
+                <Nav.Link> <Link to="/about">About </Link></Nav.Link> 
+                <Nav.Link><Link to="/login">Login </Link></Nav.Link>
+                <Nav.Link><Link to="/signup">Sign Up</Link></Nav.Link>
             </>
         )
       
         const userNav = (
             <>
-                    <NavItem> <Link to="/about">About</Link></NavItem> 
-                    <NavItem><Link to="/saved_pics"> Saved Pics</Link></NavItem>
-                    <NavItem><Link to="#" onClick={(e) => this.handleLogout(e)}> Log Out</Link></NavItem>
-              </>  
+                    <Nav.Link> <Link to="/about">About</Link></Nav.Link>  
+                    <Nav.Link><Link to="/saved_pics"> Saved Pics</Link></Nav.Link> 
+                    <Nav.Link><Link to="#" onClick={(e) => this.handleLogout(e)}> Log Out</Link></Nav.Link>
+            </>  
+            
         );
       
         
         return (
         <>
-            <Navbar>
-                <Navbar.Header>
-                    <Navbar.Brand>
-                        <Link to="/">PicList</Link> 
-                    </Navbar.Brand>
+            <Navbar bg="light">
+                    <Navbar.Brand><Link to="/">PicList</Link></Navbar.Brand>
                         
-                </Navbar.Header>      
-                <Navbar.Collapse>
-                <Nav>
+                <Nav className="mr-auto">
                     {this.props.isAuthenticated ? userNav : mainNav} 
                 </Nav>
-                </Navbar.Collapse>         
             </Navbar>
             
         </>

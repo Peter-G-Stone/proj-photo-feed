@@ -8,6 +8,7 @@ import PicsContainer from './containers/PicsContainer'
 import Navigation from './Navigation'
 import { findUserWithToken } from './actions/authActions';
 import ScrollToTop from './containers/ScrollToTop';
+import Container from 'react-bootstrap/Container'
 
 
 class App extends Component {
@@ -26,18 +27,18 @@ class App extends Component {
     const {isAuthenticated, user} = this.props
 
     const guestViews = (
-      <div id="landing-page" className="">
+      <>
         <Navigation isAuthenticated={isAuthenticated} />
         <Route exact path="/" render={(props) => <PicsContainer {...props} containerFor="pic_list"/>} />
         {/* <Route exact path="/about" component={About} /> */}
         <Route exact path="/login" component={LoginPage} />
         <Route exact path="/signup" component={SignUpPage} />
         {/* <Footer/> */}
-      </div>
+      </>
     )
 
     const userViews = (
-      <div className="">
+      <>
         <Navigation isAuthenticated={isAuthenticated} />
         <Route exact path="/" render={(props) => <PicsContainer {...props} containerFor="pic_list"/>} />
         {/* <Route exact path="/about" component={About} /> */}
@@ -45,7 +46,7 @@ class App extends Component {
         <Route exact path="/artist_page" render={(props) => <PicsContainer {...props} containerFor="artist_page"/>} />
         {/* <Route exact path="/saved_pics" render={() => <SavedPicsContainer/>} /> */}
         {/* <Footer/> */}
-      </div>
+      </>
     )
 
 
