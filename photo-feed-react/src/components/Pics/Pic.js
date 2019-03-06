@@ -2,6 +2,7 @@ import React, {Component} from 'react';
 import {connect} from 'react-redux'
 import { savePic, unSavePic, fetchArtistPics } from '../../actions/picActions'
 import { Link, withRouter } from "react-router-dom";
+import Button from 'react-bootstrap/Button'
 
 
 
@@ -30,9 +31,9 @@ class Pic extends Component {
         if (this.props.currentUser.username){
             let userHasSavedPic = this.props.currentUser.pics.map(picIdObj => picIdObj.id).includes(this.props.pic.id)
             if (userHasSavedPic) {
-                return <p><a href="/" onClick={(e) => this.handleUnSavePic(e)}>UnSave</a> from <Link to="/saved_pics">Your Collection</Link></p>
+                return <p><Button variant="primary" onClick={(e) => this.handleUnSavePic(e)}>UnSave</Button> from <Link to="/saved_pics">Your Collection</Link></p>
             } else {
-                return <p><a href="/" onClick={(e) => this.handleSavePic(e)}>Save</a></p>
+                return <p><Button variant="primary" onClick={(e) => this.handleSavePic(e)}>Save</Button></p>
             }
         }
     }
