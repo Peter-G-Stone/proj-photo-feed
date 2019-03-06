@@ -7,6 +7,8 @@ stateless components count:
   maybe should convert Pic
   --- just one more to hit req
 
+  
+
 Mon Mar4 8pm
   unsaving done
   artist page done - but its not restful so maybe refactor that.

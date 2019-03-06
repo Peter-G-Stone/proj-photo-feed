@@ -40,11 +40,10 @@ class Navigation extends Component {
         return (
         <>
             <Navbar bg="light" className="mb-4">
-                    <Navbar.Brand><Link to="/">PicList</Link></Navbar.Brand>
-                        
-                <Nav className="mr-auto" >
-                    {this.props.isAuthenticated ? userNav : mainNav} 
-                </Nav>
+                <Navbar.Brand><Link to="/">PicList</Link></Navbar.Brand>
+                    <Nav className="mr-auto" >
+                        {this.props.isAuthenticated ? userNav : mainNav} 
+                    </Nav>
             </Navbar>
             
         </>

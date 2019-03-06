@@ -28,7 +28,6 @@ class App extends Component {
 
     const guestViews = (
       <>
-        <Navigation isAuthenticated={isAuthenticated} />
         <Route exact path="/" render={(props) => <PicsContainer {...props} containerFor="pic_list"/>} />
         {/* <Route exact path="/about" component={About} /> */}
         <Route exact path="/login" component={LoginPage} />
@@ -39,7 +38,6 @@ class App extends Component {
 
     const userViews = (
       <>
-        <Navigation isAuthenticated={isAuthenticated} />
         <Route exact path="/" render={(props) => <PicsContainer {...props} containerFor="pic_list"/>} />
         {/* <Route exact path="/about" component={About} /> */}
         <Route exact path="/saved_pics" render={(props) => <PicsContainer {...props} containerFor="saved_pics"/>} />
@@ -54,7 +52,10 @@ class App extends Component {
       <div className="App">
         <Router >
           <ScrollToTop>
-            {isAuthenticated ? userViews : guestViews}
+            <Navigation isAuthenticated={isAuthenticated} />
+            <Container>
+              {isAuthenticated ? userViews : guestViews}
+            </Container>
           </ScrollToTop>
         </Router>
       </div>
