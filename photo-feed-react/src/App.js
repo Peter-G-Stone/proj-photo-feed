@@ -25,7 +25,7 @@ class App extends Component {
     const {isAuthenticated, user} = this.props
 
     const guestViews = (
-      <div id="landing-page" className="wrapper">
+      <div id="landing-page" className="">
         <Navigation isAuthenticated={isAuthenticated} />
         <Route exact path="/" render={(props) => <PicsContainer {...props} containerFor="pic_list"/>} />
         {/* <Route exact path="/about" component={About} /> */}
@@ -36,7 +36,7 @@ class App extends Component {
     )
 
     const userViews = (
-      <div className="wrapper">
+      <div className="">
         <Navigation isAuthenticated={isAuthenticated} />
         <Route exact path="/" render={(props) => <PicsContainer {...props} containerFor="pic_list"/>} />
         {/* <Route exact path="/about" component={About} /> */}
@@ -49,7 +49,7 @@ class App extends Component {
 
 
     return (
-      <div className="App">
+      <div className="App container">
         <Router >
             {isAuthenticated ? userViews : guestViews}
         </Router>

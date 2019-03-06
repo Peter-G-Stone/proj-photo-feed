@@ -30,7 +30,7 @@ class LoginPage extends Component {
        return (
             <><h2>Login</h2>
             <form onSubmit={event => this.handleSubmit(event)}>
-                <p><label>Email </label>
+                <p><label>Email</label>
                 <input type="text" value={this.state.email} name="email" onChange={this.handleChange}/></p>
                 <p><label>Password </label>
                 <input type="password" value={this.state.password} name="password" onChange={this.handleChange}/></p>

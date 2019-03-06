@@ -1,7 +1,10 @@
 import React, {Component} from 'react';
 import {connect} from 'react-redux';
+import {Nav, NavItem, Navbar} from 'react-bootstrap';
 import { Link, withRouter } from "react-router-dom";
 import { logout } from './actions/authActions';
+import "./App.css"
+
 
 class Navigation extends Component {
     
@@ -17,36 +20,48 @@ class Navigation extends Component {
         
 
         const mainNav = (
-           <>
-                <Link to="/">PicList</Link> | 
-              <Link to="/about"> About</Link> | 
-              <Link to="/login"> Log In</Link> | 
-              <Link to="/signup"> Sign Up</Link> 
-              <h3>
-                  PicList!
-              </h3>
-            </>
+            <Navbar>
+            <Navbar.Header>
+                <Navbar.Brand>
+                    <Link to="/">PicList</Link> 
+                </Navbar.Brand>
+                    
+            </Navbar.Header>      
+            <Navbar.Collapse>
+            <Nav>
+                <NavItem> <Link to="/about">About</Link></NavItem> 
+                <NavItem><Link to="/login">Login</Link></NavItem>
+                <NavItem><Link to="/signup">Sign Up</Link></NavItem>
+            </Nav>
+            </Navbar.Collapse>         
+        </Navbar>
         )
       
         const userNav = (
-            <>
-            <Link to="/">PicList</Link> | 
-              <Link to="/about"> About</Link> | 
-              <Link to="/saved_pics"> Saved Pics</Link> | 
-              <Link to="#" onClick={(e) => this.handleLogout(e)}> Log Out</Link>
-              <h3>
-                  PicList!
-              </h3>
-            </>
+            <Navbar>
+                <Navbar.Header>
+                    <Navbar.Brand>
+                        <Link to="/">PicList</Link> 
+                    </Navbar.Brand>
+                        
+                </Navbar.Header>      
+                <Navbar.Collapse>
+                <Nav>
+                    <NavItem> <Link to="/about">About</Link></NavItem> 
+                    <NavItem><Link to="/saved_pics"> Saved Pics</Link></NavItem>
+                    <NavItem><Link to="#" onClick={(e) => this.handleLogout(e)}> Log Out</Link></NavItem>
+                </Nav>
+                </Navbar.Collapse>         
+            </Navbar>
         );
       
         
         return (
-        <header>
-            <nav>
+        <>
+            
                 {this.props.isAuthenticated ? userNav : mainNav}
-            </nav>
-        </header>
+            
+        </>
         )
     }
 }
