@@ -32,6 +32,7 @@ class App extends Component {
         {/* <Route exact path="/about" component={About} /> */}
         <Route exact path="/login" component={LoginPage} />
         <Route exact path="/signup" component={SignUpPage} />
+        <Route exact path="/artist_page" render={(props) => <PicsContainer {...props} containerFor="artist_page"/>} />
         {/* <Footer/> */}
       </>
     )

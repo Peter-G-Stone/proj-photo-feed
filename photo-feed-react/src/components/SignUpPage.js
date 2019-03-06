@@ -79,17 +79,3 @@ const mapDispatchToProps = (dispatch) => ({
 export default connect(null, mapDispatchToProps)(SignUpPage)
 // the above had in Christine Tran's (as well as the commented out import line at beginning of file): 
 // export default Login = withRouter(connect(null, {authenticate})(Login));
-
-
-{/* <><h2>SignUp</h2>
-            <form onSubmit={event => this.handleSubmit(event)}>
-                <p><label>Username </label>                
-                <input type="text" value={this.state.username} name="username" onChange={this.handleChange}/></p>
-                <p><label>Email </label>
-                <input type="text" value={this.state.email} name="email" onChange={this.handleChange}/></p>
-                <p><label>Password </label>
-                <input type="password" value={this.state.password} name="password" onChange={this.handleChange}/></p>
-                <p><label>Confirm Password </label>
-                <input type="password" value={this.state.confirmPassword} name="confirmPassword" onChange={this.handleChange}/></p>
-                <button type="submit">Submit</button>
-            </form></> */}

@@ -25,7 +25,6 @@ export function fetchArtistPics (artistId) {
         return fetch(`${API_URL}/artist_pics`, {
             method: "POST",
             headers: {
-                'Authorization': `Bearer ${localStorage.token}`,
                 "Accept":"application/json",
                 "Content-Type":"application/json"
             },
