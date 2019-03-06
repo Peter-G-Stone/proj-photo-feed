@@ -24,7 +24,6 @@ class PicsContainer extends Component {
 
     
     render() {
-        debugger
 
         let filteredPics
         if (this.props.containerFor === "pic_list"){

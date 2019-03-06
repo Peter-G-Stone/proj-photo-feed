@@ -42,7 +42,7 @@ class Pic extends Component {
     
     render () {
         const pic = this.props.pic
-        const artistLink = '/artists/' + pic.artist.name
+        const artistLink = '/artists/' + pic.artist.id
         
         return (
             <>

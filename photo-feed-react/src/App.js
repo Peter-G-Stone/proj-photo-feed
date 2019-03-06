@@ -57,15 +57,15 @@ class App extends Component {
             <Navigation isAuthenticated={isAuthenticated} />
             
             <Container>
-              <Switch>
+              
                 
                 <Route exact path="/" render={(props) => <PicsContainer {...props} containerFor="pic_list"/>} />
 
                 {isAuthenticated ? userViews : guestViews}
 
-                <Route exact path="/artists/:artist_name" component={ArtistContainer} />
+                <Route path="/artists/:id" component={ArtistContainer} />
 
-              </Switch>
+              
             </Container>
           </ScrollToTop>
         </Router>

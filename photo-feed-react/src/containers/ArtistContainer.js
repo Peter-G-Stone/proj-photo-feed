@@ -6,7 +6,8 @@ import {fetchArtistPics} from '../actions/picActions'
 class ArtistContainer extends Component {
     
     componentDidMount() {
-        this.props.fetchArtistPics(this.match.params.artist_name)    
+        debugger
+        // this.props.fetchArtistPics(this.match.params.artist_name)    
     }
 
 
