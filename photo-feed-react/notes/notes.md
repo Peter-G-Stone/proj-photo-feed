@@ -7,7 +7,13 @@ stateless components count:
   maybe should convert Pic
   --- just one more to hit req
 
-
+Mon Mar4 8pm
+  unsaving done
+  artist page done - but its not restful so maybe refactor that.
+  then css style
+    remember to insert subtitle depending on active page
+  then comments, likes 
+  then users as artists/submitters <- this is a stretch goal I'd say>
 
 Mon Mar4 3:47pm
   maintains logins now
