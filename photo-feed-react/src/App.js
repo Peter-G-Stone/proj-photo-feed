@@ -6,6 +6,7 @@ import LoginPage from './components/LoginPage'
 import SignUpPage from './components/SignUpPage'
 import PicsContainer from './containers/PicsContainer'
 import Navigation from './Navigation'
+import About from './About'
 import { findUserWithToken } from './actions/authActions';
 import ScrollToTop from './containers/ScrollToTop';
 import Container from 'react-bootstrap/Container'
@@ -29,7 +30,7 @@ class App extends Component {
     const guestViews = (
       <>
         <Route exact path="/" render={(props) => <PicsContainer {...props} containerFor="pic_list"/>} />
-        {/* <Route exact path="/about" component={About} /> */}
+        <Route exact path="/about" component={About} />
         <Route exact path="/login" component={LoginPage} />
         <Route exact path="/signup" component={SignUpPage} />
         <Route exact path="/artist_page" render={(props) => <PicsContainer {...props} containerFor="artist_page"/>} />
@@ -40,7 +41,7 @@ class App extends Component {
     const userViews = (
       <>
         <Route exact path="/" render={(props) => <PicsContainer {...props} containerFor="pic_list"/>} />
-        {/* <Route exact path="/about" component={About} /> */}
+        <Route exact path="/about" component={About} />
         <Route exact path="/saved_pics" render={(props) => <PicsContainer {...props} containerFor="saved_pics"/>} />
         <Route exact path="/artist_page" render={(props) => <PicsContainer {...props} containerFor="artist_page"/>} />
         {/* <Route exact path="/saved_pics" render={() => <SavedPicsContainer/>} /> */}
