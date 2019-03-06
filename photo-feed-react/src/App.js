@@ -7,6 +7,7 @@ import SignUpPage from './components/SignUpPage'
 import PicsContainer from './containers/PicsContainer'
 import Navigation from './Navigation'
 import { findUserWithToken } from './actions/authActions';
+import ScrollToTop from './containers/ScrollToTop';
 
 
 class App extends Component {
@@ -49,9 +50,11 @@ class App extends Component {
 
 
     return (
-      <div className="App container">
+      <div className="App">
         <Router >
+          <ScrollToTop>
             {isAuthenticated ? userViews : guestViews}
+          </ScrollToTop>
         </Router>
       </div>
     );

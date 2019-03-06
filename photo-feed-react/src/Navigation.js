@@ -20,24 +20,24 @@ class Navigation extends Component {
         
 
         const mainNav = (
-            <Navbar>
-            <Navbar.Header>
-                <Navbar.Brand>
-                    <Link to="/">PicList</Link> 
-                </Navbar.Brand>
-                    
-            </Navbar.Header>      
-            <Navbar.Collapse>
-            <Nav>
+            <>
                 <NavItem> <Link to="/about">About</Link></NavItem> 
                 <NavItem><Link to="/login">Login</Link></NavItem>
                 <NavItem><Link to="/signup">Sign Up</Link></NavItem>
-            </Nav>
-            </Navbar.Collapse>         
-        </Navbar>
+            </>
         )
       
         const userNav = (
+            <>
+                    <NavItem> <Link to="/about">About</Link></NavItem> 
+                    <NavItem><Link to="/saved_pics"> Saved Pics</Link></NavItem>
+                    <NavItem><Link to="#" onClick={(e) => this.handleLogout(e)}> Log Out</Link></NavItem>
+              </>  
+        );
+      
+        
+        return (
+        <>
             <Navbar>
                 <Navbar.Header>
                     <Navbar.Brand>
@@ -47,19 +47,10 @@ class Navigation extends Component {
                 </Navbar.Header>      
                 <Navbar.Collapse>
                 <Nav>
-                    <NavItem> <Link to="/about">About</Link></NavItem> 
-                    <NavItem><Link to="/saved_pics"> Saved Pics</Link></NavItem>
-                    <NavItem><Link to="#" onClick={(e) => this.handleLogout(e)}> Log Out</Link></NavItem>
+                    {this.props.isAuthenticated ? userNav : mainNav} 
                 </Nav>
                 </Navbar.Collapse>         
             </Navbar>
-        );
-      
-        
-        return (
-        <>
-            
-                {this.props.isAuthenticated ? userNav : mainNav}
             
         </>
         )
