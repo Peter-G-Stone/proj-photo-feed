@@ -1,6 +1,8 @@
 // import { withRouter } from 'react-router-dom'
 import React, { Component } from 'react'
-// import { Form, Button, Col, Grid } from 'react-bootstrap'
+import Form from 'react-bootstrap/Form'
+import Button from 'react-bootstrap/Button'
+import Container from 'react-bootstrap/Container'
 import { connect } from 'react-redux'
 import { signup, getUser } from '../actions/authActions'
 
@@ -35,18 +37,35 @@ class SignUpPage extends Component {
 
     render() {
        return (
-            <><h2>SignUp</h2>
-            <form onSubmit={event => this.handleSubmit(event)}>
-                <p><label>Username </label>                
-                <input type="text" value={this.state.username} name="username" onChange={this.handleChange}/></p>
-                <p><label>Email </label>
-                <input type="text" value={this.state.email} name="email" onChange={this.handleChange}/></p>
-                <p><label>Password </label>
-                <input type="password" value={this.state.password} name="password" onChange={this.handleChange}/></p>
-                <p><label>Confirm Password </label>
-                <input type="password" value={this.state.confirmPassword} name="confirmPassword" onChange={this.handleChange}/></p>
-                <button type="submit">Submit</button>
-            </form></>
+        <Container>
+        <Form  onSubmit={event => this.handleSubmit(event)}>
+            <Form.Group controlId="formBasicUsername">
+                <Form.Label>Username</Form.Label>
+                <Form.Control type="username" placeholder="Enter username" value={this.state.username} name="username" onChange={this.handleChange}/>
+            </Form.Group>
+
+            <Form.Group controlId="formBasicEmail">
+                <Form.Label>Email address</Form.Label>
+                <Form.Control type="email" placeholder="Enter email" value={this.state.email} name="email" onChange={this.handleChange}/>
+                <Form.Text className="text-muted">
+                    We'll never share your email with anyone else.
+                </Form.Text>
+            </Form.Group>
+        
+            <Form.Group controlId="formBasicPassword">
+                <Form.Label>Password</Form.Label>
+                <Form.Control type="password" placeholder="Password" value={this.state.password} name="password" onChange={this.handleChange}/>
+            </Form.Group>
+
+            <Form.Group controlId="formBasicConfirmPassword">
+                <Form.Label>Confirm Password</Form.Label>
+                <Form.Control type="password" placeholder="Confirm Password" value={this.state.confirmPassword} name="confirmPassword" onChange={this.handleChange}/>
+            </Form.Group>
+
+            <Button variant="primary" type="submit">
+                Submit
+            </Button>
+        </Form></Container>
 
        )}
 }
@@ -60,3 +79,17 @@ const mapDispatchToProps = (dispatch) => ({
 export default connect(null, mapDispatchToProps)(SignUpPage)
 // the above had in Christine Tran's (as well as the commented out import line at beginning of file): 
 // export default Login = withRouter(connect(null, {authenticate})(Login));
+
+
+{/* <><h2>SignUp</h2>
+            <form onSubmit={event => this.handleSubmit(event)}>
+                <p><label>Username </label>                
+                <input type="text" value={this.state.username} name="username" onChange={this.handleChange}/></p>
+                <p><label>Email </label>
+                <input type="text" value={this.state.email} name="email" onChange={this.handleChange}/></p>
+                <p><label>Password </label>
+                <input type="password" value={this.state.password} name="password" onChange={this.handleChange}/></p>
+                <p><label>Confirm Password </label>
+                <input type="password" value={this.state.confirmPassword} name="confirmPassword" onChange={this.handleChange}/></p>
+                <button type="submit">Submit</button>
+            </form></> */}
