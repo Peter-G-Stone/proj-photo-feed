@@ -19,17 +19,10 @@ export function fetchPics () { //changing this off of export default to reg expe
 }
 
 
-export function fetchArtistPics (artistId) { 
+export function fetchArtistPics (artistName) { 
     return (dispatch) => { 
         dispatch({type: types.LOADING_PICS})
-        return fetch(`${API_URL}/artist_pics`, {
-            method: "POST",
-            headers: {
-                "Accept":"application/json",
-                "Content-Type":"application/json"
-            },
-            body: JSON.stringify({artistId: artistId})
-        })
+        return fetch(`${API_URL}/${artistName}`)
             .catch(error => console.error(error))
             .then(resp => resp.json())
             .then(picData => {

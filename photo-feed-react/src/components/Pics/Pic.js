@@ -24,7 +24,8 @@ class Pic extends Component {
     }
     
     handleArtistLinkClick = (e) => {
-        this.props.fetchArtistPics(this.props.pic.artist_id)
+        // this.props.fetchArtistPics(this.props.pic.artist_id)
+
     }
 
     renderSaveToggle = () => {
@@ -41,11 +42,12 @@ class Pic extends Component {
     
     render () {
         const pic = this.props.pic
+        const artistLink = '/artists/' + pic.artist.name
         
         return (
             <>
                 <p><img alt="picInList" src={pic.url}/></p>
-                <Link to="/artist_page" onClick={(e) => this.handleArtistLinkClick(e)}>{pic.artist.name}</Link>
+                <Link to={artistLink}>{pic.artist.name}</Link>
                 
                 {this.renderSaveToggle()}
                 <p> - </p>

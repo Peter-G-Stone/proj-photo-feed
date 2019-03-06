@@ -2,14 +2,21 @@ import React, { Component } from 'react';
 import './App.css';
 import { connect } from 'react-redux'
 import { BrowserRouter as Router, Route } from 'react-router-dom'
+import { Switch } from 'react-router'
+import Container from 'react-bootstrap/Container'
+
 import LoginPage from './components/LoginPage'
 import SignUpPage from './components/SignUpPage'
+
 import PicsContainer from './containers/PicsContainer'
+import ScrollToTop from './containers/ScrollToTop';
+import ArtistContainer from './containers/ArtistContainer';
+
 import Navigation from './Navigation'
 import About from './About'
+
 import { findUserWithToken } from './actions/authActions';
-import ScrollToTop from './containers/ScrollToTop';
-import Container from 'react-bootstrap/Container'
+
 
 
 class App extends Component {
@@ -28,24 +35,17 @@ class App extends Component {
     const {isAuthenticated, user} = this.props
 
     const guestViews = (
-      <>
-        <Route exact path="/" render={(props) => <PicsContainer {...props} containerFor="pic_list"/>} />
-        <Route exact path="/about" component={About} />
-        <Route exact path="/login" component={LoginPage} />
-        <Route exact path="/signup" component={SignUpPage} />
-        <Route exact path="/artist_page" render={(props) => <PicsContainer {...props} containerFor="artist_page"/>} />
-        {/* <Footer/> */}
+      <>        
+        <Route path="/about" component={About} />
+        <Route path="/login" component={LoginPage} />
+        <Route path="/signup" component={SignUpPage} />       
       </>
     )
 
     const userViews = (
-      <>
-        <Route exact path="/" render={(props) => <PicsContainer {...props} containerFor="pic_list"/>} />
-        <Route exact path="/about" component={About} />
-        <Route exact path="/saved_pics" render={(props) => <PicsContainer {...props} containerFor="saved_pics"/>} />
-        <Route exact path="/artist_page" render={(props) => <PicsContainer {...props} containerFor="artist_page"/>} />
-        {/* <Route exact path="/saved_pics" render={() => <SavedPicsContainer/>} /> */}
-        {/* <Footer/> */}
+      <>       
+        <Route path="/about" component={About} />
+        <Route path="/saved_pics" render={(props) => <PicsContainer {...props} containerFor="saved_pics"/>} />
       </>
     )
 
@@ -55,8 +55,17 @@ class App extends Component {
         <Router >
           <ScrollToTop>
             <Navigation isAuthenticated={isAuthenticated} />
+            
             <Container>
-              {isAuthenticated ? userViews : guestViews}
+              <Switch>
+                
+                <Route exact path="/" render={(props) => <PicsContainer {...props} containerFor="pic_list"/>} />
+
+                {isAuthenticated ? userViews : guestViews}
+
+                <Route exact path="/artists/:artist_name" component={ArtistContainer} />
+
+              </Switch>
             </Container>
           </ScrollToTop>
         </Router>
