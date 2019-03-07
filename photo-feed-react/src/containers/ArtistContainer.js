@@ -10,20 +10,25 @@ class ArtistContainer extends Component {
         this.props.fetchArtistPics(artistId) 
     }
 
-    callDebug = () => {
-        debugger
-    }
+    // callDebug = () => {
+    //     debugger
+    // }
     
     render() {
-
-        if (this.props.loading){
+        if (!this.props.artistPics) {
+            const artistId = window.location.href.split('/')[4]
+            this.props.fetchArtistPics(artistId)
+            return (
+                <p> Loading...</p>
+            ) 
+        }
+        else if (this.props.loading){
             return (
                 <p> Loading...</p>
             )
         } else {
             return(
                 <>
-                {/* insert a function to render a subtitle - user page or artist page */}
                 <PicsList pics={this.props.artistPics} />
                 </>
             )
