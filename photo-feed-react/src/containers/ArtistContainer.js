@@ -6,18 +6,17 @@ import {fetchArtistPics} from '../actions/picActions'
 class ArtistContainer extends Component {
     
     componentDidMount() {
+        this.fireFetchArtistPics() 
+    }
+
+    fireFetchArtistPics = () => {
         const artistId = window.location.href.split('/')[4]
         this.props.fetchArtistPics(artistId) 
     }
-
-    // callDebug = () => {
-    //     debugger
-    // }
     
     render() {
         if (!this.props.artistPics) {
-            const artistId = window.location.href.split('/')[4]
-            this.props.fetchArtistPics(artistId)
+            this.fireFetchArtistPics()
             return (
                 <p> Loading...</p>
             ) 

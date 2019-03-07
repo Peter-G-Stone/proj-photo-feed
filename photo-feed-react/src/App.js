@@ -59,6 +59,7 @@ class App extends Component {
                 <Route exact path="/" render={(props) => <PicsContainer {...props} containerFor="pic_list"/>} />
 
                 <Route path="/about" component={About} />
+                
                 {isAuthenticated ? userViews : guestViews}
 
                 <Route exact path="/artists/:id" component={ArtistContainer} key={Math.random()} />

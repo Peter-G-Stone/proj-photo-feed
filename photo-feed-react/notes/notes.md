@@ -3,10 +3,8 @@ stateless components count:
   signupPage
   PicsList
   Navigation
+  About
   
-  maybe should convert Pic
-  --- just one more to hit req
-
   
 
 Mon Mar4 8pm
