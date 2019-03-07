@@ -13,6 +13,13 @@ class ArtistContainer extends Component {
         const artistId = window.location.href.split('/')[4]
         this.props.fetchArtistPics(artistId) 
     }
+
+    renderSubtitle = () => {    
+        if (this.props.artistPics[0]){
+            return <h4 className="my-4">{this.props.artistPics[0].artist.name}</h4>
+        } 
+    }
+    
     
     render() {
         if (!this.props.artistPics) {
@@ -28,6 +35,7 @@ class ArtistContainer extends Component {
         } else {
             return(
                 <>
+                {this.renderSubtitle()}
                 <PicsList pics={this.props.artistPics} />
                 </>
             )
