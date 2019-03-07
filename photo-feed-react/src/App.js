@@ -63,7 +63,7 @@ class App extends Component {
 
                 {isAuthenticated ? userViews : guestViews}
 
-                <Route path="/artists/:id" component={ArtistContainer}  />
+                <Route exact path="/artists/:id" component={ArtistContainer} key={Math.random()} />
 
               
             </Container>

@@ -25,7 +25,6 @@ class PicsContainer extends Component {
 
     
     render() {
-
         let filteredPics
         if (this.props.containerFor === "pic_list"){
             filteredPics = this.props.pics

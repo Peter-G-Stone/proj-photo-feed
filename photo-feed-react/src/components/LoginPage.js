@@ -23,7 +23,6 @@ class LoginPage extends Component {
     }
     
     handleSubmit = (e) => {
-        debugger
         e.preventDefault();
         this.props.authenticate(this.state, this.props.history)
     }

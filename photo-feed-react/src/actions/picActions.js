@@ -30,7 +30,6 @@ export function fetchArtistPics (artistId) {
         .catch(error => console.error(error))
         .then(resp => resp.json())
         .then(picData => {
-                debugger
                 dispatch({type: types.FETCH_ARTIST_PICS, payload: picData})})
             .catch(error => console.log(error))
     }

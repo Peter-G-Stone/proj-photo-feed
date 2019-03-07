@@ -10,10 +10,12 @@ class ArtistContainer extends Component {
         this.props.fetchArtistPics(artistId) 
     }
 
-
+    callDebug = () => {
+        debugger
+    }
     
     render() {
-        debugger
+
         if (this.props.loading){
             return (
                 <p> Loading...</p>
