@@ -8,9 +8,12 @@ import Button from 'react-bootstrap/Button'
 
 
 class Pic extends Component {
-    // constructor(props) {
-    //     super(props);
-    // }
+    constructor(props) {
+        super(props);
+        this.state = {
+            counter: 0
+        }
+    }
 
     handleSavePic = (e) => {
         e.preventDefault()
@@ -39,6 +42,16 @@ class Pic extends Component {
         }
     }
 
+    renderCounter = () => {
+        return <p><Button variant="dark" onClick={(e) => this.incrementCounter()}>Click me! {this.state.counter}</Button></p>
+    }
+
+    incrementCounter = () => {
+        this.setState((prevState) => ({
+            counter: prevState.counter += 1
+        }))
+    }
+
     
     render () {
         const pic = this.props.pic
@@ -50,6 +63,7 @@ class Pic extends Component {
                 <Link to={artistLink}>{pic.artist.name}</Link>
                 
                 {this.renderSaveToggle()}
+                <p><Button variant="dark" onClick={(e) => this.incrementCounter()}>Click me! {this.state.counter}</Button></p>
                 <p> - </p>
             </>
         )
@@ -60,10 +74,4 @@ const mapStateToProps = (state) => {
     return {currentUser: state.authReducer.currentUser}
 }
 
-const mapDispatchToProps = (dispatch) => ({
-    savePic: (pic) => dispatch(savePic(pic)),
-    unSavePic: (pic) => dispatch(unSavePic(pic)),
-    fetchArtistPics: (artistId) => dispatch(fetchArtistPics(artistId))
-  })
-
-export default withRouter(connect(mapStateToProps, mapDispatchToProps)(Pic))
+export default withRouter(connect(mapStateToProps, {savePic, unSavePic, fetchArtistPics})(Pic))

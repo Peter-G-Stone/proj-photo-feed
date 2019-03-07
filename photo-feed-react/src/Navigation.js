@@ -16,7 +16,6 @@ class Navigation extends Component {
     
 
     render() {
-
         const mainNav = (
             <>
                 <Navbar.Text className="mx-2"> <Link to="/about">About </Link></Navbar.Text> 

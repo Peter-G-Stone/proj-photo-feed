@@ -23,11 +23,23 @@ class PicsContainer extends Component {
             return <h4 className="my-4">Your Collection</h4>
         } 
     }
+
+    sortedPicList = () => {
+        function compare(a, b){
+            if (a.artist.name < b.artist.name){
+                return -1
+            } else if (a.artist.name > b.artist.name){
+                return 1
+            }
+            return 0
+        }        
+        return this.props.pics.sort(compare)
+    }
     
     render() {
         let filteredPics
-        if (this.props.containerFor === "pic_list"){
-            filteredPics = this.props.pics
+        if (this.props.containerFor === "pic_list"){                       
+            filteredPics = this.sortedPicList()
         } 
         else if (this.props.containerFor === "your_collection"){
             filteredPics = this.filterForUserPics()
