@@ -19,7 +19,7 @@ class PicsContainer extends Component {
     }
 
     renderSubtitle = () => {    
-        if (this.props.containerFor === "saved_pics"){
+        if (this.props.containerFor === "your_collection"){
             return <h4 className="my-4">Your Collection</h4>
         } 
     }
@@ -29,7 +29,7 @@ class PicsContainer extends Component {
         if (this.props.containerFor === "pic_list"){
             filteredPics = this.props.pics
         } 
-        else if (this.props.containerFor === "saved_pics"){
+        else if (this.props.containerFor === "your_collection"){
             filteredPics = this.filterForUserPics()
         } 
         

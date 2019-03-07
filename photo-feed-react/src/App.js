@@ -44,7 +44,7 @@ class App extends Component {
     const userViews = (
       <>       
         <Route path="/about" component={About} />
-        <Route path="/saved_pics" render={(props) => <PicsContainer {...props} containerFor="saved_pics"/>} />
+        <Route path="/your_collection" render={(props) => <PicsContainer {...props} containerFor="your_collection"/>} />
       </>
     )
 

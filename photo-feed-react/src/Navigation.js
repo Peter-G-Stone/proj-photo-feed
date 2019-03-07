@@ -28,7 +28,7 @@ class Navigation extends Component {
         const userNav = (
             <>
                     <Navbar.Text className="mx-2"> <Link to="/about">About</Link></Navbar.Text>  
-                    <Navbar.Text className="mx-2"><Link to="/saved_pics"> Saved Pics</Link></Navbar.Text> 
+                    <Navbar.Text className="mx-2"><Link to="/your_collection"> Your Collection</Link></Navbar.Text> 
                     <Navbar.Text className="mx-2"><Link to="#" onClick={(e) => this.handleLogout(e)}> Log Out</Link></Navbar.Text>
             </>  
             

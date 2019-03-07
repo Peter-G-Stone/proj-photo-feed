@@ -32,7 +32,7 @@ class Pic extends Component {
         if (this.props.currentUser.username){
             let userHasSavedPic = this.props.currentUser.pics.map(picIdObj => picIdObj.id).includes(this.props.pic.id)
             if (userHasSavedPic) {
-                return <p><Button variant="primary" onClick={(e) => this.handleUnSavePic(e)}>UnSave</Button> from <Link to="/saved_pics">Your Collection</Link></p>
+                return <p><Button variant="primary" onClick={(e) => this.handleUnSavePic(e)}>UnSave</Button> from <Link to="/your_collection">Your Collection</Link></p>
             } else {
                 return <p><Button variant="primary" onClick={(e) => this.handleSavePic(e)}>Save</Button></p>
             }
