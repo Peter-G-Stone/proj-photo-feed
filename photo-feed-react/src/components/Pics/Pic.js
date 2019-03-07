@@ -50,6 +50,8 @@ class Pic extends Component {
         this.setState((prevState) => ({
             counter: prevState.counter += 1
         }))
+        
+        
     }
 
     
