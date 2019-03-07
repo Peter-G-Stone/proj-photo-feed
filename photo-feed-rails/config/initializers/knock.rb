@@ -1,7 +1,7 @@
 Knock.setup do |config|
 
   
-  ##  this is the fix for the compaitibility break that prevented JWT from being created:
+  ##  NOTE : this is the fix for the compaitibility break that prevented JWT from being created:
   config.token_secret_signature_key = -> { Rails.application.credentials.read }
 
 
