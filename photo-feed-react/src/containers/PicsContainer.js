@@ -18,6 +18,11 @@ class PicsContainer extends Component {
         return UserPics
     }
 
+    renderSubtitle = () => {    
+        if (this.props.containerFor === "saved_pics"){
+            return <h4 className="my-4">Your Collection</h4>
+        } 
+    }
     
     render() {
         let filteredPics
@@ -36,7 +41,8 @@ class PicsContainer extends Component {
         } else {
             return(
                 <>
-                {/* insert a function to render a subtitle - user page or artist page */}
+
+                {this.renderSubtitle()}
                 <PicsList pics={filteredPics} />
                 </>
             )
