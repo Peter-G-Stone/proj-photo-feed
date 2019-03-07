@@ -6,14 +6,9 @@ import {fetchPics} from '../actions/picActions'
 class PicsContainer extends Component {
     
     componentDidMount() {
-        if (this.props.containerFor === "artist_page"){
-            const artist_id = window.location.href.split('/')[4]
-
-        }
-        else if (this.props.pics.length === 0){
+       
+        if (this.props.pics.length === 0){
                 this.props.fetchPics()
-        } else {
-            console.log('you are in the else in picsContainer')
         }
     }
 
@@ -32,10 +27,7 @@ class PicsContainer extends Component {
         else if (this.props.containerFor === "saved_pics"){
             filteredPics = this.filterForUserPics()
         } 
-        else if (this.props.containerFor === "artist_page"){
-            filteredPics = this.props.artistPics
-
-        } 
+        
 
         if (this.props.loading){
             return (
@@ -55,7 +47,6 @@ class PicsContainer extends Component {
 const mapStateToProps = (state) => {
     return {
         pics: state.picsReducer.pics,
-        artistPics: state.picsReducer.artistPics,
         loading: state.picsReducer.loading,
         user: state.authReducer.currentUser
     }

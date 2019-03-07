@@ -2,7 +2,6 @@ import React, { Component } from 'react';
 import './App.css';
 import { connect } from 'react-redux'
 import { BrowserRouter as Router, Route } from 'react-router-dom'
-import { Switch } from 'react-router'
 import Container from 'react-bootstrap/Container'
 
 import LoginPage from './components/LoginPage'
@@ -32,7 +31,7 @@ class App extends Component {
   
   render() {
 
-    const {isAuthenticated, user} = this.props
+    const {isAuthenticated} = this.props
 
     const guestViews = (
       <>        
@@ -79,9 +78,7 @@ class App extends Component {
 
 const mapStateToProps = (state) => {
   return {
-    isAuthenticated: state.authReducer.isAuthenticated,
-    user: state.authReducer.currentUser
-  }
+    isAuthenticated: state.authReducer.isAuthenticated}
 }
 
 const mapDispatchToProps = (dispatch) => ({
