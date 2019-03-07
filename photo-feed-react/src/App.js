@@ -35,7 +35,6 @@ class App extends Component {
 
     const guestViews = (
       <>        
-        <Route path="/about" component={About} />
         <Route path="/login" component={LoginPage} />
         <Route path="/signup" component={SignUpPage} />       
       </>
@@ -43,12 +42,11 @@ class App extends Component {
 
     const userViews = (
       <>       
-        <Route path="/about" component={About} />
         <Route path="/your_collection" render={(props) => <PicsContainer {...props} containerFor="your_collection"/>} />
       </>
     )
-
-
+    
+    
     return (
       <div className="App">
         <Router >
@@ -60,6 +58,7 @@ class App extends Component {
                 
                 <Route exact path="/" render={(props) => <PicsContainer {...props} containerFor="pic_list"/>} />
 
+                <Route path="/about" component={About} />
                 {isAuthenticated ? userViews : guestViews}
 
                 <Route exact path="/artists/:id" component={ArtistContainer} key={Math.random()} />
