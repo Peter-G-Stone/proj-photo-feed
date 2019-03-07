@@ -1,13 +1,15 @@
-class Api::PicsController < ApplicationController
+class Api::ArtistsController < ApplicationController
+
 
     def show
-        binding.pry
-        render json: @artist, :include => :pics
+        @artist = Artist.find(params[:id]) 
+        pics = @artist.pics       
+        render json: pics, :include => :artist
     end
 
     private
     # Use callbacks to share common setup or constraints between actions.
-    def set_user
-      @user = User.find_by(name: params[:id])
+    def set_artist
+      @artist = Artist.find(params[:id])
     end
 end

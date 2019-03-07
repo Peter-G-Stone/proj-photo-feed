@@ -6,14 +6,13 @@ import {fetchArtistPics} from '../actions/picActions'
 class ArtistContainer extends Component {
     
     componentDidMount() {
-        debugger
-        // this.props.fetchArtistPics(this.match.params.artist_name)    
+        const artistId = window.location.href.split('/')[4]
+        this.props.fetchArtistPics(artistId) 
     }
 
 
     
     render() {
-        
         debugger
         if (this.props.loading){
             return (
@@ -39,7 +38,7 @@ const mapStateToProps = (state) => {
 }
 
 const mapDispatchToProps = (dispatch) => ({
-    fetchArtistPics: () => dispatch(fetchArtistPics())  
+    fetchArtistPics: (artistId) => dispatch(fetchArtistPics(artistId))  
 })
   
 

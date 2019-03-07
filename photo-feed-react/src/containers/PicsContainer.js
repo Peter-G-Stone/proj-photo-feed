@@ -7,7 +7,8 @@ class PicsContainer extends Component {
     
     componentDidMount() {
         if (this.props.containerFor === "artist_page"){
-            const artist_name = window.location.href.split('/')[3]
+            const artist_id = window.location.href.split('/')[4]
+
         }
         else if (this.props.pics.length === 0){
                 this.props.fetchPics()
@@ -34,6 +35,7 @@ class PicsContainer extends Component {
         } 
         else if (this.props.containerFor === "artist_page"){
             filteredPics = this.props.artistPics
+
         } 
 
         if (this.props.loading){

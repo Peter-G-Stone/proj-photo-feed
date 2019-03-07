@@ -13,6 +13,7 @@ export default function picsReducer (state = {
         case types.FETCH_PICS: 
             return {...state, pics: action.payload, loading: false}
         case types.FETCH_ARTIST_PICS: 
+            debugger
             return {...state, artistPics: action.payload, loading: false}
         default: 
             return state
