@@ -39,7 +39,7 @@ class PicsContainer extends Component {
     render() {
         let filteredPics
         if (this.props.containerFor === "pic_list"){                       
-            filteredPics = this.sortedPicList()
+            filteredPics = this.props.pics
         } 
         else if (this.props.containerFor === "your_collection"){
             filteredPics = this.filterForUserPics()

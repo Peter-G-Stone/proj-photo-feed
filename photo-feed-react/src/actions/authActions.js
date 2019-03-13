@@ -49,6 +49,7 @@ export const findUserWithToken = () => {
 }
 
 export const signup = (user, history) => {
+  debugger
   const newUser = user
   return dispatch => {
     return fetch(`${API_URL}/users`, {
