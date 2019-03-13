@@ -13,11 +13,11 @@ https://www.youtube.com/watch?v=VoSx8EqIyg8&feature=youtu.be
 ## Technology Used
 
 Ruby / Rails API
-  the Knock gem
+  * the Knock gem
   
 Javascript / React 
-  Redux
-  Thunk middleware
+  * Redux
+  * Thunk middleware
   
 CSS / Bootstrap
 
