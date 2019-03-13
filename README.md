@@ -3,8 +3,8 @@
 PicList
 
 ## Description
-A version of the content scrolling user experience found in many popular apps (e.g. Facebook, Instagram). 
-This project is built to showcase skills that I've been practising. 
+A version of the content scrolling user experience found in many popular apps (e.g. Facebook, Instagram). Simple, clean image browsing and collecting.
+
 
 ## Demo
 
