@@ -21,6 +21,8 @@ Javascript / React
   
 CSS / Bootstrap
 
+JSON Web Tokens
+
 
 ### Features
 
