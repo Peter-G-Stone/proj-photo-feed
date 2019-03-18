@@ -18,15 +18,6 @@ ActiveRecord::Schema.define(version: 2019_03_03_010406) do
     t.datetime "updated_at", null: false
   end
 
-  create_table "pic_collects", force: :cascade do |t|
-    t.integer "pic_id"
-    t.integer "user_id"
-    t.datetime "created_at", null: false
-    t.datetime "updated_at", null: false
-    t.index ["pic_id"], name: "index_pic_collects_on_pic_id"
-    t.index ["user_id"], name: "index_pic_collects_on_user_id"
-  end
-
   create_table "pics", force: :cascade do |t|
     t.string "url"
     t.integer "likes", default: 0, null: false
@@ -34,6 +25,15 @@ ActiveRecord::Schema.define(version: 2019_03_03_010406) do
     t.datetime "created_at", null: false
     t.datetime "updated_at", null: false
     t.index ["artist_id"], name: "index_pics_on_artist_id"
+  end
+
+  create_table "pics_users", force: :cascade do |t|
+    t.integer "pic_id"
+    t.integer "user_id"
+    t.datetime "created_at", null: false
+    t.datetime "updated_at", null: false
+    t.index ["pic_id"], name: "index_pics_users_on_pic_id"
+    t.index ["user_id"], name: "index_pics_users_on_user_id"
   end
 
   create_table "users", force: :cascade do |t|
