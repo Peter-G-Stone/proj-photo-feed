@@ -20,7 +20,6 @@ ActiveRecord::Schema.define(version: 2019_03_03_010406) do
 
   create_table "pics", force: :cascade do |t|
     t.string "url"
-    t.integer "likes", default: 0, null: false
     t.integer "artist_id"
     t.datetime "created_at", null: false
     t.datetime "updated_at", null: false
