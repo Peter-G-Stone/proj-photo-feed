@@ -1,7 +1,7 @@
 class User < ApplicationRecord
     has_secure_password
-    has_many :pics_users
-    has_many :pics, through: :pics_users
+    has_many :pic_collects
+    has_many :pics, through: :pic_collects
 
     validates :email, uniqueness: true
     validates :username, uniqueness: true
