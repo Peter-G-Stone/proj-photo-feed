@@ -27,9 +27,13 @@ ActiveRecord::Schema.define(version: 2019_03_03_010406) do
     t.index ["artist_id"], name: "index_pics_on_artist_id"
   end
 
-  create_table "pics_users", id: false, force: :cascade do |t|
-    t.integer "pic_id", null: false
-    t.integer "user_id", null: false
+  create_table "picsusers", force: :cascade do |t|
+    t.integer "pic_id"
+    t.integer "user_id"
+    t.datetime "created_at", null: false
+    t.datetime "updated_at", null: false
+    t.index ["pic_id"], name: "index_picsusers_on_pic_id"
+    t.index ["user_id"], name: "index_picsusers_on_user_id"
   end
 
   create_table "users", force: :cascade do |t|
