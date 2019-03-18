@@ -8,7 +8,7 @@ Rails.application.routes.draw do
     post '/find_user_with_token' => 'users#findWithToken'
 
     get '/pics' => 'pics#index'
-    post '/artist_pics' => 'pics#artist_pics'
+    post '/artist_pics' => 'pics#artistPics'
 
 
 
@@ -16,6 +16,7 @@ Rails.application.routes.draw do
  
     post '/add_pic_to_user' => 'users#addPicToUser'
     post '/remove_pic_from_user' => 'users#removePicFromUser'
+    post '/like_pic' => 'pics#likePic'
  
   end
 end

@@ -38,8 +38,7 @@ class Api::UsersController < ApplicationController
   #   @user.destroy
   # end
 
-  ########## implemented from https://medium.com/@christine_tran/part-1-create-react-app-rails-api-authentication-with-jwt-tokens-and-redux-e14c7e788989
-  ####
+  
   def find
     @user = current_user
     if @user
