@@ -65,7 +65,7 @@ class Pic extends Component {
                 <Link to={artistLink}>{pic.artist.name}</Link>
                 
                 {this.renderSaveToggle()}
-                {/* <p><Button variant="dark" onClick={(e) => this.incrementCounter()}>Click me! {this.state.counter}</Button></p> */}
+                <p><Button variant="dark" onClick={(e) => this.incrementCounter()}>Like</Button></p>
                 <p> - </p>
             </>
         )
