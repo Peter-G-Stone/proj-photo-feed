@@ -2,7 +2,7 @@ import * as types from './actionTypes'
 import {API_URL} from './apiUrl'
 
 
-export function fetchPics () { //changing this off of export default to reg expert is what solved that final test (async actions). In App.js I then had to add the curly braces around the import fetchCats line
+export function fetchPics () { //changing this not export default, just a regular export. In App.js add the curly braces around the import fetchPics line
     return (dispatch) => { 
         dispatch({type: types.LOADING_PICS})
         return fetch(`${API_URL}/pics`, {
