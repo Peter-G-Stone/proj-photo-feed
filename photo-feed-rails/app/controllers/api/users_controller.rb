@@ -56,6 +56,9 @@ class Api::UsersController < ApplicationController
     pic = Pic.find(params[:pic][:id])
     user.pics << pic
     user.save
+    picsUser = PicsUser.find_by(pic_id: pic.id, user_id: user.id)
+    picsUser.update(saved: true)
+    binding.pry
     render json: user, :include => {:pics => {:only =>  :id}}
   end
 
