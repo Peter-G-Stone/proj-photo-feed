@@ -26,10 +26,6 @@ class Pic extends Component {
         this.props.unSavePic(this.props.pic)
     }
     
-    handleArtistLinkClick = (e) => {
-        // this.props.fetchArtistPics(this.props.pic.artist_id)
-
-    }
 
     renderSaveToggle = () => {
         if (this.props.currentUser.username){

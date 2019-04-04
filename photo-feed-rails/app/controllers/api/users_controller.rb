@@ -52,11 +52,8 @@ class Api::UsersController < ApplicationController
 
   def addPicToUser
     user = current_user
-    # user = current_user
     pic = Pic.find(params[:pic][:id])
-    user.pics << pic
-    user.save
-    picsUser = PicsUser.find_by(pic_id: pic.id, user_id: user.id)
+    picsUser = PicsUser.find_or_create_by(user_id: user.id, pic_id: pic.id)
     picsUser.update(saved: true)
     binding.pry
     render json: user, :include => {:pics => {:only =>  :id}}
