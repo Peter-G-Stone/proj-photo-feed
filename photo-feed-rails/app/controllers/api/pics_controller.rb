@@ -17,4 +17,8 @@ class Api::PicsController < ApplicationController
         binding.pry
     end
 
+    def unlikePic
+        binding.pry
+    end
+
 end

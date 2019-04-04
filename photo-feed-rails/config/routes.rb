@@ -17,6 +17,7 @@ Rails.application.routes.draw do
     post '/add_pic_to_user' => 'users#addPicToUser'
     post '/remove_pic_from_user' => 'users#removePicFromUser'
     post '/like_pic' => 'pics#likePic'
+    post '/unlike_pic' => 'pics#unlikePic'
  
   end
 end
